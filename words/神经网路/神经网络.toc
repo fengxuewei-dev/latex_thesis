@@ -1,0 +1,9 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}BP神经网络}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}正向传递子过程}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}BP神经网络PID控制器}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}改进型BP神经网络}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}BP神经网络PID控制器算法}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}结 论}{4}{section.3}%
+\contentsline {section}{参考文献}{5}{section.3}%
+\contentsfinish 

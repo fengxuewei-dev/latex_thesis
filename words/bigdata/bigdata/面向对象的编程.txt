@@ -1,0 +1,27 @@
+class Counter{
+var value = 0
+def increment(step: Int): Unit = {value += step}
+def current(): Int = {value}
+}
+
+val mycounter = new Counter   // 可以不需要加圆括号
+mycounter.value = 5
+mycounter.increment(3)
+println(mycounter.current)   // current函数没有 参数 可以不谢圆括号
+// 结果： 8
+
+class Counter{
+	private var privateValue = 0
+	def value= privateValue
+	def value_=(newValue: Int){
+		if (newValue > 0) privateValue = newValue
+	}
+	def increment(step: Int): Unit = {value += step}
+	def current(): Int = {value}
+ }
+val mycou = new Counter
+mycou.value_=(3)
+println(mycou.value)
+3
+
+

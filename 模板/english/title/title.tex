@@ -1,0 +1,100 @@
+\documentclass[UTF8, 11pt]{ctexart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[none]{hyphenat}
+
+% 宏包fancyhdr: 来设定文章的页眉页脚
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+
+% 设置整体页面风格 \pagestyle{fancy}
+% 也可以用 \thispagestyle{<风格>} 单独设置当前页的风格。book 类默认使用 heading 风格，report 和 article 默认使用 plain 风格
+\pagestyle{fancy}
+
+% 由于里面没有任何参数，所以这条命令用来清空所有的页眉设置。
+\fancyhead{}
+% 清除页脚设置
+\fancyfoot{}
+
+% E	偶数页
+% O	奇数页
+% L	左区域
+% C	中间区域
+% R	右区域	
+% H	页眉	
+% F	页脚
+% \fancyhead[OR,EL]{\thepage} 表示页眉的奇数页右侧和偶数页左侧放置页码
+
+% \slshape 本声明把字体的形状属性改为slanted的斜体，但保留族与系列不变
+\fancyhead[L]{\slshape \MakeUppercase{Place Title Here}}
+\fancyhead[R]{\slshape Student Name}
+\fancyfoot[C]{\thepage}
+
+% 定义一个新的命令来替换一段代码。
+\renewcommand{\footrulewidth}{0pt}
+
+%\parindent 0ex
+% 这个命令会使该命令之后的所有段的缩进都变成这个值
+\setlength{\parindent}{4em}
+% 设置段落间距
+\setlength{\parskip}{1em}
+% 自己定义一个新的命令来替换一段代码。
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+	
+\begin{titlepage}
+    \begin{center} % 居中
+        % 插入垂直间隔的命令是\vspace{长度}。
+        \vspace*{1cm}
+            % \textbf{内容} 将内容进行加粗
+            \Large{\textbf{1B Mathematics SL}}\\
+            \Large{\textbf{Internal Assessment}}\\
+           
+            \vfill % 用来具体的分割
+           
+            % \line(x-slope,y-slope){length}  一般是取 (1, 0)
+            \line(1,0){400}\\[1mm] % create a horizontal line
+            \huge{\textbf{This is a Sample Title}}\\[3mm]
+            \Large{\textbf{-This is a SampleSubtitle-}}\\[1mm]
+            \line(1,0){400}
+           
+            \vfill
+
+            By Student Name\\
+            Candidate \# \\
+            \today \\
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+% empty: 无页眉页脚
+% plain: 无页眉，页脚为居中页码
+% headings: 页眉为章节标题，无页脚
+% myheadings: 页眉内容可自定义，无页脚
+\thispagestyle{empty} % 设置当前页 页版式
+\clearpage % 分页
+
+% 设置一个计数器 page
+\setcounter{page}{1}
+\section{introduction}
+
+\section{Scoring Criteria}
+
+\section{Communication}
+
+    \subsection{Mathematical Presentation}
+
+    \subsection{Personal Engagement}
+
+    \subsection{Reflection}
+
+    \subsection{Use of Mathematics}
+
+\section{Conclusion}
+
+\section{Using \LaTeX\ }
+
+\end{document}

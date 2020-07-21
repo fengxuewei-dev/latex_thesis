@@ -1,0 +1,23 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+
+\title{More than one Author with different Affiliations}
+\author[a]{Author A}
+\author[a]{Author B}
+\author[a]{Author C \thanks{Corresponding author: email@mail.com}}
+\author[b]{Author D}
+\author[b]{Author E}
+\affil[a]{Department of Computer Science, \LaTeX\ University}
+\affil[b]{Department of Mechanical Engineering, \LaTeX\ University}
+
+% 使用 \thanks 定义通讯作者
+
+\renewcommand*{\Affilfont}{\small\it} % 修改机构名称的字体与大小
+\renewcommand\Authands{ and } % 去掉 and 前的逗号
+\date{} % 去掉日期
+
+\begin{document}
+  \maketitle
+\end{document}

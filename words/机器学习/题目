@@ -1,0 +1,32 @@
+// wpa_supplicant.conf
+
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="TP-LINK_A621"
+    psk="fx@zzr@fjp@fqn@fxw"
+    key_mgmt=WPA-PSK
+    priority=3
+}
+
+network={
+    ssid="iPhone"
+    psk="22222222"
+    key_mgmt=WPA-PSK
+    priority=2
+}
+ 
+network={
+    ssid="CMCC-3SEt"
+    psk="tdrj64d4"
+    key_mgmt=WPA-PSK
+    priority=1
+}
+network={
+    ssid="Directech"
+    psk="Directech0329"
+    key_mgmt=WPA-PSK
+    priority=4
+}

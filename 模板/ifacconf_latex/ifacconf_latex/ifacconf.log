@@ -1,0 +1,215 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.11)  15 JUL 2020 16:25
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.tex"
+(f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06> (f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.cls
+Document Class: ifacconf 2008/04/14, 3.2ModD: IFAC conferences
+
+\@frontmatterwidth=\dimen134
+\@bls=\dimen135
+\eqntopsep=\skip47
+\eqnarraycolsep=\dimen136
+\labelwidthi=\dimen137
+\labelwidthii=\dimen138
+\labelwidthiii=\dimen139
+\labelwidthiv=\dimen140
+\@maxlistdepth=\count167
+\eqnbaselineskip=\skip48
+\eqnlineskip=\skip49
+\mathindent=\dimen141
+\rulepreskip=\dimen142
+\rulepostskip=\dimen143
+\Arrayrulewidth=\dimen144
+\crulepostskip=\dimen145
+\@Ldec=\dimen146
+\@Rdec=\dimen147
+\@Lpmdec=\dimen148
+\@Rpmdec=\dimen149
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+(d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/tools/theorem.sty
+Package: theorem 2014/10/28 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks15
+\theorem@bodyfont=\toks16
+\theorempreskipamount=\skip50
+\theorempostskipamount=\skip51
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/tools/thp.sty
+File: thp.sty 2014/10/28 v2.2c Theorem extension package (FMi)
+)) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/base/newlfont.sty
+Package: newlfont 1998/08/17 v2.2m Standard LaTeX package
+LaTeX Info: Redefining \em on input line 57.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+))
+LaTeX Info: Redefining \rm on input line 595.
+LaTeX Info: Redefining \sf on input line 596.
+LaTeX Info: Redefining \tt on input line 597.
+LaTeX Info: Redefining \bf on input line 598.
+LaTeX Info: Redefining \it on input line 599.
+LaTeX Info: Redefining \sl on input line 600.
+LaTeX Info: Redefining \sc on input line 601.
+\c@thm=\count173
+\c@alg=\count174
+\c@algorithm=\count175
+\c@note=\count176
+\c@summ=\count177
+\c@case=\count178
+\@tempcntc=\count179
+\c@figure=\count180
+\c@table=\count181
+\t@glob@notes=\toks17
+\t@loc@notes=\toks18
+\note@cnt=\count182
+\c@author=\count183
+\n@author=\count184
+\c@collab=\count185
+\n@collab=\count186
+\c@address=\count187
+\sv@mathsurround=\dimen150
+\sv@hyphenpenalty=\count188
+\prev@elem=\count189
+\cur@elem=\count190
+\fm@box=\box45
+\fm@size=\dimen151
+\t@abstract=\box46
+\t@keyword=\box47
+\rep@mod=\count191
+\t@xtheight=\dimen152
+\@logoheight=\dimen153
+\@pubyear=\count192
+\c@firstpage=\count193
+\c@lastpage=\count194
+\slashbox=\box48
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1506.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 1506.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 1506.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+\Slashbox=\box49
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 1507.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 1507.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 1507.
+\@frontindent=\dimen154
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen155
+\Gin@req@width=\dimen156
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip52
+\bibsep=\skip53
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count195
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count196
+\l__pdf_internal_box=\box50
+) (f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.aux)
+\openout1 = `ifacconf.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count197
+\scratchdimen=\dimen157
+\scratchbox=\box51
+\nofMPsegments=\count198
+\nofMParguments=\count199
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count266
+\MPscratchDim=\dimen158
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks21
+) (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.79996> on input line 16.
+\c@sv@footnote=\count269
+<bifurcation.jpg, id=1, 670.505pt x 501.875pt>
+File: bifurcation.jpg Graphic file (type jpg)
+<use bifurcation.jpg>
+Package pdftex.def Info: bifurcation.jpg  used on input line 129.
+(pdftex.def)             Requested size: 239.00298pt x 178.89055pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+ []
+
+[1{d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+] [2 <f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/bifurcation.jpg>] (f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.bbl) [3
+
+] (f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.aux) ) 
+Here is how much of TeX's memory you used:
+ 2125 strings out of 480608
+ 29878 string characters out of 5892806
+ 273377 words of memory out of 5000000
+ 18019 multiletter control sequences out of 15000+600000
+ 539266 words of font info for 52 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 33i,10n,30p,292b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+<d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on "f:/20. 文献/模板/ifacconf_latex/ifacconf_latex/ifacconf.pdf" (3 pages, 256307 bytes).
+PDF statistics:
+ 83 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+
