@@ -1,0 +1,6 @@
+PWD f:/2. UAV/10. ReportSummary/chapter2/conclusion
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf.cnf
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/web2c/texmf.cnf
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT f:/2. UAV/10. ReportSummary/chapter2/conclusion/conclusion.tex
+OUTPUT f:/2. UAV/10. ReportSummary/chapter2/conclusion/conclusion.log

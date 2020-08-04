@@ -1,0 +1,10 @@
+PWD f:/2. UAV/10. ReportSummary/20200723
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf.cnf
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/web2c/texmf.cnf
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT f:/2. UAV/10. ReportSummary/20200723/20200723.tex
+OUTPUT f:/2. UAV/10. ReportSummary/20200723/20200723.log
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT f:/2. UAV/10. ReportSummary/20200723/20200723.pdf
+INPUT d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map

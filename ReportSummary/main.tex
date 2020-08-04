@@ -1,0 +1,187 @@
+\documentclass[UTF8,a4paper,10pt,nocolorlinks]{ctexbook}
+
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左   
+\usepackage{ctex}
+\CTEXoptions[today=old]
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{varioref}
+\usepackage{ctex}
+\usepackage{multicol}
+\usepackage{amssymb} 
+\usepackage{setspace}
+\usepackage{tikz} 
+\usepackage{mdframed}
+\usepackage{titletoc}
+\usepackage{etoolbox}
+
+\usepackage{helvet}
+\usepackage{caption}
+\usepackage{multicol} 
+\usepackage{changepage}
+\usepackage{graphics}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[english]{babel}
+\usepackage{color}      
+\usepackage{graphicx}   
+\usepackage{url}        
+\usepackage{bm}         
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage[pagestyles]{titlesec}
+\renewcommand{\algorithmicensure}{ \textbf{Input:}} 
+\renewcommand{\figurename}{图}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+
+\newpagestyle{teststyle}{
+  \sethead{\emph{姓名:冯学伟}}{\emph{\sectiontitle}}{\emph{第\thepage页}}
+  \renewcommand{\makeheadrule}{
+    \makebox[0pt][l]{\rule[-.3\baselineskip]{\linewidth}{.5pt}}
+    \rule[-.4\baselineskip]{\linewidth}{.5pt}
+  }
+}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{changepage}
+\usepackage{fancyhdr}   %设置页眉、页脚
+\pagestyle{fancy}       %%%单线页眉
+\fancyhead{}
+\fancyhead[LO]{汇报总结}
+\fancyhead[RO]{冯学伟}
+\fancypagestyle{plain}{
+  \pagestyle{fancy}
+}
+\usepackage{shorttoc}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{titletoc}
+
+\DeclareRobustCommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}  % 初号
+\DeclareRobustCommand{\xiaochu}{\fontsize{36pt}{\baselineskip}\selectfont} % 小初
+\DeclareRobustCommand{\yihao}{\fontsize{26pt}{\baselineskip}\selectfont}   % 一号
+\DeclareRobustCommand{\xiaoyi}{\fontsize{24pt}{\baselineskip}\selectfont}  % 小一
+\DeclareRobustCommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}   % 二号
+\DeclareRobustCommand{\xiaoer}{\fontsize{18pt}{\baselineskip}\selectfont}  % 小二
+\DeclareRobustCommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}  % 三号 
+\DeclareRobustCommand{\xiaosan}{\fontsize{15pt}{\baselineskip}\selectfont} % 小三
+\DeclareRobustCommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}   % 四号
+\DeclareRobustCommand{\xiaosi}{\fontsize{12pt}{\baselineskip}\selectfont}  % 小四
+\DeclareRobustCommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont} % 五号
+\DeclareRobustCommand{\xiaowu}{\fontsize{9pt}{\baselineskip}\selectfont}   % 小五
+\DeclareRobustCommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont} % 六号
+\DeclareRobustCommand{\xiaoliu}{\fontsize{6.5pt}{\baselineskip}\selectfont}% 小六
+\DeclareRobustCommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}  % 七号
+
+\lstset{numbers=left,numberstyle=\tiny,
+breaklines=true,  %代码过长则换行
+keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{gray!20!green!20!blue!20},escapeinside=``,xleftmargin=2em,xrightmargin=2em, aboveskip=1em}
+
+\providecommand{\keywords}[1]{\textbf{\textit{keywords---}} #1}
+
+% 设置章节格式
+% 一级标题：黑体，三号，加粗；间距：段前 0.5 行，段后 1 行；
+% \ctexset{chapter={
+%     name = {第,章},
+%     number = {\arabic{chapter}},
+%     format = {\heiti \bfseries \centering \zihao{3}},
+%     aftername = \hspace{9bp},
+%     pagestyle = BIThesis,
+%     beforeskip = 8bp,
+%     afterskip = 32bp,
+%     fixskip = true,
+%   }
+% }
+
+% % 二级标题：黑体，四号，加粗；间距：段前 0.5 行，段后 0 行；
+\ctexset{section={
+    number = {\thechapter.\hspace{4bp}\arabic{section}},
+    format = {\heiti \raggedright \bfseries \zihao{4}},
+    aftername = \hspace{8bp},
+    beforeskip = 20bp plus 1ex minus .2ex,
+    afterskip = 18bp plus .2ex,
+    fixskip = true,
+  }
+}
+
+% % 三级标题：黑体、小四、加粗；间距：段前 0.5 行，段后 0 行；
+\ctexset{subsection={
+    number = {\thechapter.\hspace{3bp}\arabic{section}.\hspace{3bp}\arabic{subsection}},
+    format = {\heiti \bfseries \raggedright \zihao{-4}},
+    aftername = \hspace{7bp},
+    beforeskip = 17bp plus 1ex minus .2ex,
+    afterskip = 14bp plus .2ex,
+    fixskip = true,
+  }
+}
+
+% 设置目录样式
+% 添加 PDF 链接
+\addtocontents{toc}{\protect\hypersetup{hidelinks}}
+
+% 解决「目录」二字的格式问题
+\renewcommand{\contentsname}{
+  \fontsize{16pt}{\baselineskip}
+  \normalfont\heiti{目~~~~录}
+  \vspace{-8pt}
+}
+% 定义目录样式
+\titlecontents{chapter}[0pt]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+\titlecontents{section}[2\ccwd]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+\titlecontents{subsection}[4\ccwd]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+
+ % 正文页面
+% \renewcommand{\mainmatter}{
+%   \pagenumbering{arabic}
+%   \pagestyle{BIThesis}
+% }
+
+\usepackage{hyperref} %bookmarks
+% \usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green,CJKbookmarks=True]{hyperref}
+\hypersetup{colorlinks, bookmarks, unicode} % unicode
+ 
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={图}}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+% 报道总结
+\title{
+    \huge{\textbf{report summary}}\\
+}
+
+\author{fengxuewei}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    % \pagestyle{teststyle}
+    \tableofcontents
+    \clearpage
+    \input{chapter1/conclusion.tex}
+    \input{chapter2/conclusion/conclusion.tex}
+    \input{chapter3/20200723.tex}
+    % \input{chapters/introduce/introduce.tex}
+    % \input{chapters/controllers/controllers.tex}
+    % \input{chapters/landingLogical/landingLogical.tex}
+    % \input{chapters/visionGuidence/visionGuidence.tex}
+    % % 前面的都是基础知识, 方法, 只是介绍, 以及各自的优点和缺点, 我需要解决的问题, 每一章都说一个缺点, 在后面 针对上面的缺点进行解决
+
+    % \input{chapters/mix/mix.tex}
+    % \input{chapters/simulations/simulations.tex}
+    % \input{chapters/conclusion/conclusion.tex}
+    % \input{chapters/literature/literature.tex}
+
+\end{document}

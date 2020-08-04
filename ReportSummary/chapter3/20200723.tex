@@ -1,0 +1,197 @@
+    \chapter{20200723}
+    \section{20200723}
+    \begin{itemize}
+        \item[(1)] 给第一版加上了退出保护机制, 让其能退出 attitude controller , 从而将飞控的控制权交给qgc或者是Joystick. (详情可见~\ref{sec:protect})
+        \item[(2)] 对offboard进行了bug调节 
+        \item[(3)] 协调转弯 (\textcolor{red}{$\dot{\psi} = \frac{g}{V_{a}} tan \phi $}) (详情可见~\ref{sec:turn}).
+    \end{itemize}
+    \clearpage
+
+    \section{The centrifugal force}
+    当物体在做非直线运动时（非牛顿环境，例如：圆周运动或转弯运动），
+    因物体一定有本身的质量存在，
+    质量造成的惯性会强迫物体继续朝着运动轨迹的切线方向（原来那一瞬间前进的直线方向）前进，
+    而非顺着接下来转弯过去的方向走。
+    \par 若这个在做非直线运动的物体（例如：车）上有乘客的话，乘客由于同样随着车子做转弯运动，
+    会受到车子向乘客提供的向心力，但是若以乘客为参照系，由于该参照系为非惯性系，
+    他会受到与他相对静止的车子给他的一个指向圆心的向心力作用，
+    但同时他也会给车子一个反向等大，由圆心指向外的力，就好像没有车子他就要被甩出去一样，这个力就是所谓的离心力。
+    \section{concept}
+    \begin{itemize}
+        \item[(1)] 航向角是质心沿着速度方向在水平面上的投影与预定轨迹的切线方向之间的夹角, 记为$\chi$; \\ 偏航角是质心沿着机头方向在水平面上的投影与预定轨迹的切线方向之间的夹角, 记为 $\psi$.\\
+        航向角$\chi$是地速相对于$i^{i}$(正北)方向的偏移角度, 偏航角$\psi$是空速方向; \\在没有风的情况下, 偏航角和航向角是相等的
+        \item[(2)] 升力是垂直副翼向上的
+        \item[(3)] roll的大小和方向: 机体坐标系OZb轴与通过机体OXb轴的铅垂面间的夹角，机体向右滚为正，反之为负。
+        \item[(4)] $\gamma$是 地速方向和水平方向的夹角
+        \item[(5)] 圆周运动的半径, 线速度, 以及角速度三者之间的关系: $v = r \omega$
+    \end{itemize}
+    \clearpage
+    \setcounter{page}{1}        %从下面开始编页，页脚格式为导言部分设置的格式
+    \section{退出保护机制}
+    \label{sec:protect}
+    当飞机进入到 ALTCTL 模式的时候, 退出保护机制会一直监控当前px4飞行模式是否有切换到其他模式的趋势, 即qgc或Joystick是否有争夺控制权的动作. 
+    \begin{itemize}
+      \item[(1)] 若有, 那么退出保护机制向 attitude controller 发送一个标志位, 来告知 attitude controller 不再发送 rc 控制指令. 进而退出 ALTCTL mode, 进入 RTL mode;
+      \item[(2)] 若无, 那么一直监听.
+    \end{itemize}
+    \clearpage
+    \section{Coordinated Turn 协调转弯}
+    \label{sec:turn}
+    方向角的变化率是和机体的roll以及倾斜角(bank angle)有关系, 我们需要寻找一个简单的关系来帮助我们研究这种线性传递函数的关系 -- 协调转弯. \par
+    在协调转弯期间, 飞机在体坐标系下没有横向加速度. 从分析的角度来看, 协调转弯的一个假设运行我们得到一个简单的表达式将 heading rate 和 bank angle 联系起来. \par
+    协调转弯时, 为了无人机没有侧向力, bank angle $\phi$ 被设置.
+    在图\ref{fig:1}中, 作用在微型飞行器上的离心力与作用在水平方向上的升力的水平分量相等并相反。
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pictures/chapter3/5_1.png}
+        \caption{爬升协调转弯MAV上的力}
+        \label{fig:1}
+    \end{figure}
+    \par 作用在水平方向力的关系表示如下: 
+    \begin{align}
+        F_{lift} sin \phi cos (\chi - \psi) &= m \frac{v^{2}}{R} \nonumber \\
+        &= m v \omega \nonumber \\
+        &= m (V_{g} cos \gamma) \dot{\chi} 
+        \label{equ:1}
+    \end{align}
+    其中, $F_{lift}$代表的是升力, $\gamma$ 代表的是飞行轨迹的角度, $V_{g}, \chi$ 分别表示的是地速度以及方向角. \textcolor{red}{向心加速度的表达式: $a_{n} = \frac{v^{2}}{R} = v \omega$}
+    \par 离心力(The centrifugal force)(\textcolor{red}{$m (V_{g} cos \gamma) \dot{\chi} $})计算的时候, 用到了在惯性坐标系$k^{i}$上的方向角变化率$\dot{\chi}$ 和 速度的水平分量 $V_{a}cos \gamma$
+    \par 同样, 升力的垂直分量与重力在 $j^{b} - k^{b}$平面上的投影是等大反向的. 
+    垂直方向上的合力为:
+    \begin{equation}
+        F_{lift} cos \phi = mg cos\gamma
+        \label{equ:2}
+    \end{equation}
+    将等式\ref{equ:1}除以\ref{equ:2}得的 $\dot{\chi}$
+    \begin{equation}
+        \dot{\chi} = \frac{g}{V_{g}} tan \phi cos(\chi - \psi)
+        \label{equ:3}
+    \end{equation}
+    等式\ref{equ:3}就是协调转弯的表达式. 
+    \par 考虑到转弯半径等于 \textcolor{blue}{ $R = V_{g} \frac{cos \gamma}{\dot{\chi}}$}, 将上式代入半径中, 得到式子\ref{equ:4}. 在没有风或侧滑的情况下, 有\textcolor{red}{$V_{a} = V_{g}$和$\psi = \chi$}, 从而得到了式子\ref{equ:5}. 
+    \begin{equation}
+        R = \frac{V_{g}^{2} cos \gamma}{g tan \phi cos(\chi - \psi)} 
+        \label{equ:4}
+    \end{equation}
+    \begin{equation}
+        \dot{\chi} = \frac{g}{V_{g}} tan \phi = \dot{\psi} = \frac{g}{V_{a}} tan \phi
+        \label{equ:5}
+    \end{equation}
+    \par 在 9.2 节中, 我们将要介绍 在有风的情况下 \textcolor{blue}{$ \dot{\psi} = \frac{g}{V_{a}} tan \phi$} 该式子也成立
+    \clearpage
+    \section{Kinematic Model of Controlled Flight}
+    % 控制飞行动力学模型\par
+    % 在推导降阶表达式中, 简化的目的是估计运动中力平衡以及动量平衡的关系式(这些包含了 $\dot{u}, \dot{v}, \dot{\omega}, \dot{p}, , \dot{q}, \dot{r}$), 预估这些变量需要计算复杂的空气动力. 这些变量表达式可以被更简单的动力学表达式替代. 
+    % 这个更简单的动力学表达式是\textcolor{blue}{针对协调转弯和加速爬升的特定飞行条件而导出}.
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pictures/chapter3/2_10.png}
+        \caption{航线轨迹角度$\gamma$和航向角$\chi$}
+        \label{fig:2_10}
+    \end{figure}
+    针对图\ref{fig:2_10}, 飞机相对于惯性系的速度矢量可以用航向角和(惯性参考)飞行路径角表示为 
+    \begin{gather} % 输入多行公式
+        V_{g}^{i} = V_{g} \begin{pmatrix}
+            cos \chi cos \gamma \\
+            sin \chi cos \gamma \\
+            -sin \gamma \\
+          \end{pmatrix}
+          = \begin{pmatrix}
+            \dot{p_{n}} \\
+            \dot{p_{e}} \\
+            \dot{h} \\
+          \end{pmatrix}
+          \label{equ:6}
+      \end{gather}
+    \par 由于控制飞机的航向和空速是很常见的，因此用$\psi$和$V_{a}$表示等式\ref{equ:6}很有用. 
+    \begin{gather} % 输入多行公式
+        V_{g} \begin{pmatrix}
+            cos \chi cos \gamma \\
+            sin \chi cos \gamma \\
+            -sin \gamma \\
+          \end{pmatrix} - \begin{pmatrix}
+            w_{n} \\
+            w_{e} \\
+            w_{d} \\
+          \end{pmatrix} =  V_{a} \begin{pmatrix}
+            cos \psi cos \gamma_{a} \\
+            sin \psi cos \gamma_{a} \\
+            -sin \gamma_{a} \\
+          \end{pmatrix}
+          \label{equ:wind}
+      \end{gather}
+      结合风的表达式\ref{equ:wind}(地速等于空速加风速, 
+        其中的 $\gamma_{a}$ 代表的是 空速的方向和水平方向的夹角), 我们可以得到
+      \begin{gather} % 输入多行公式
+        \begin{pmatrix}
+            \dot{p_{n}} \\
+            \dot{p_{e}} \\
+            \dot{h} \\
+          \end{pmatrix} = V_{a} \begin{pmatrix}
+            cos \psi cos \gamma_{a} \\
+            sin \psi cos \gamma_{a} \\
+            sin \gamma_{a} \\
+          \end{pmatrix} +  \begin{pmatrix}
+            w_{n} \\
+            w_{e} \\
+            -w_{d} \\
+          \end{pmatrix}
+          \label{equ:7}
+      \end{gather}
+      如果我们假设飞机保持在一个恒定的高度，并且没有向下的风分量，那么运动学表达式简化为\ref{equ:8}, 同样该模型也是无人机领域中比较常用的模型. 
+      \begin{gather} % 输入多行公式
+        \begin{pmatrix}
+            \dot{p_{n}} \\
+            \dot{p_{e}} \\
+            \dot{h} \\
+          \end{pmatrix} = V_{a} \begin{pmatrix}
+            cos \psi \\
+            sin \psi \\
+            0 \\
+          \end{pmatrix} +  \begin{pmatrix}
+            w_{n} \\
+            w_{e} \\
+            0 \\
+          \end{pmatrix}
+          \label{equ:8}
+      \end{gather}
+      \subsection{Coordinated Turn}
+      之前的协调转弯的表达式为 $\dot{\chi} = \frac{g}{V_{g}} tan \phi cos(\chi - \psi)$. 
+      即使在第6章中描述的自动驾驶回路并没有强制执行协调转弯条件，
+      飞机必须倾斜才能转弯(而不是打滑才能转弯)这个基本条件已经被这个模型捕捉到了。\par
+      协调转弯可以被 heading 和 空速进行表示. 我们先对\ref{equ:wind}两边进行求导, 得到下面的式子\ref{equ:9}
+      \begin{gather} % 输入多行公式
+        \begin{pmatrix}
+            cos \chi cos \gamma & - V_{g} sin \chi cos \gamma & - V_{g} cos \chi sin \gamma \\
+            sin \chi cos \gamma & V_{g} cos \chi cos \gamma & - V_{g} sin \chi sin \gamma \\
+            -sin \gamma & 0 & -cos \gamma \\
+          \end{pmatrix} \begin{pmatrix}
+            \dot{V_{g}} \\
+            \dot{\chi} \\
+            \dot{\gamma} \\
+        \end{pmatrix}
+          = \begin{pmatrix}
+            cos \psi cos \gamma_{a} & - V_{a} sin \psi cos \gamma_{a} & - V_{a} cos \psi sin \gamma_{a} \\
+            sin \psi cos \gamma_{a} & V_{a} cos \psi cos \gamma_{a} & - V_{a} sin \psi sin \gamma_{a} \\
+            -sin \gamma_{a} & 0 & -cos \gamma_{a} \\
+          \end{pmatrix} \begin{pmatrix}
+            \dot{V_{a}} \\
+            \dot{\psi} \\
+            \dot{\gamma_{a}} \\
+        \end{pmatrix}
+          \label{equ:9}
+      \end{gather}
+      \par 在定高和没有向下风分量的情况下, $\gamma, \gamma_{a}, \dot{\gamma}, \dot{\gamma_a}$ 和 $w_{d}$ 都是0, 根据$\dot{V_{a}}$ 和$\dot{\chi}$求解$\dot{V_{g}}$ 和$\dot{\psi}$
+      \begin{equation}
+        \begin{split}
+          \dot{V_{g}} &= \frac{\dot{V_{a}}}{cos (\chi - \psi)} + V_{g} \dot{\chi} tan(\chi - \psi) \\
+          \dot{\psi} &= \frac{\dot{V_{a}}}{V_{a}} tan (\chi - \psi) + \frac{V_{g} \dot{\chi}}{V_{a}cos(\chi - \psi)}
+        \end{split}
+    \end{equation}
+    \par 若假定空速为常数, 那么得\ref{equ:10} 最值得注意的是在有风的情况下，这个等式是成立的。
+    \begin{equation}
+        \dot{\chi} = \frac{g}{V_{g}} tan \phi 
+        \label{equ:10}
+    \end{equation}
+    \subsection{Accelerating Climb}
+% \end{document}
