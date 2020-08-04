@@ -1,0 +1,14 @@
+  \chapter{七月份}
+    \section{第一周}
+    \subsection{第一天(20200731)}
+    继续调节debug(vf一直计算的姿态期望值是固定的 $roll | yaw = -1.56339$)
+    \begin{itemize}
+      \item 拿到输入，相同的输入, 就需要去比对当前的值和msgsSubAndPub的值能否是实时的？
+      \item 如果我的输出和昌伟的输出结果都是一样的， 那么就会是输入值的问题 $==>$ 输出是相同的
+      \item 相同的输出: 给到px4内部现象是什么样子的呢?  $==>$ 相反的情况
+    \end{itemize} 
+    感觉情况像是发送进来的rc指令为空. 测试: 
+    \begin{itemize}
+      \item 只是发送一个空的值, 使能ALTCTL模式 $==>$ 单独使用节点进入定高模式 $==>$  沿着切线方向去飞
+      \item 拿标准版的飞控进行接收数据. 
+    \end{itemize}

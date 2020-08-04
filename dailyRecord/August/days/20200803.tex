@@ -1,0 +1,31 @@
+enableATLTCL 一直发送同一个RC指令; 同时 Attitude controller 发送计算之后的RC指令, 现象如何 $===>$  可以按照 Attitude controller 计算的指令进行运行.
+
+先这样看看 protect 节点逻辑如何, 能不能事先退出和进入 ==> OK 的
+
+protect 发送指令需要通过processor间接控制, 还是直接控制?
+
+因为在实际飞行过程中, 需要遥控器或者地面站来让它进入 定高模式, 所以才有节点 enableALTCTL
+
+遥控器发送切换模式指令, attitude controller 发送RC指令
+首先飞控接入遥控器, 遥控器会给飞控发送RC指令, 这个时候, 启动树莓派内部的算法逻辑, 进入定高模式, 执行算法. 
+当通过地面站切回到return模式的时候  ==> 需要退出定高模式, 只能通过控制 publish 输入. 而退出来了, 就没有办法再进去了
+
+进入 定高模式需要两个条件, 一个是 使能 ALTCTL; 另外一个 是 publish RC 指令
+进入定高模式之后, 再退出(禁止publish), 想要进入, 第一个条件满足, 第二个条件就没有办法; 我们可以通过其他方式第二次进入 
+
+那么这个第二次进入就同时需要 mode == "ALTCTL" And publish();
+
+\par
+\begin{itemize}
+    \item [1.] 在代码中加入保护机制, 可以退出也可以进入
+    \item [2.] enableATLTCL 一直发送同一个RC指令; 同时 Attitude controller 发送计算之后的RC指令, 现象如何 $===>$  可以按照 Attitude controller 计算的指令进行运行.
+    \item [3.] 需要解决树莓派上电自启动的事情
+    \item [4.] protect 发送指令需要通过processor间接控制, 还是直接控制?  $===>$ 间接控制
+    \item [5.] 明天: attitude controller $-->$ PX4降到20
+\end{itemize}
+
+目的: 找到一个方法去让节点开机自启动; 
+需要找到一个方法可以验证一个进程开机启动了; 
+拿一个 UDP send 和 UDP Receive 来进行测试; 
+UDP send, UDP Receive的本地源代码. 
+

@@ -1,0 +1,18 @@
+\begin{itemize}
+    \item [1.] 理清楚px4 upload的时候代码是存放在哪里? px4硬件内部, 还是sd卡
+    \item [2.] 重新刷几个固件看看是不是现象不对
+    \item [3.] 更换 USB 接口 $==>$ 进入定高模式, 计算出来的值是1.5895, 朝着右下方去飞了
+    \item [4.] 换了个固件, 刷了同样的 Firmware, 现象是一样的
+    \item [5.] 换了一个线, 现象也是一样的
+\end{itemize}
+
+PX4 的数据可以被正确执行, PX4 的硬件在环的数据流是什么样子的? PX4 连接 QGC 连接 XPlane10. \par
+XPlane10 为仿真提供位姿数据, 在 QGC 中进行显示. XPlane10 和 QGC 内部连接, 所以不能得出什么结论. 
+
+\subsubsection{run changwei's px4 code}
+在运行昌伟代码的时候, 使用今天的新固件不能切换模式(手动和树莓派切换都是不ok的); 但是使用昨天的固件, 刷入程序, 可以手动进入mission模式并且返航. \par
+不接遥控器的时候, 现象不稳定.
+
+现在昌伟这个进不去 mission 模式, 手动切入(有的时候好, 有的时候不行, 需要多插拔几次)
+
+\par \textcolor{red}{明天: attitude controller $-->$ PX4降到20}
