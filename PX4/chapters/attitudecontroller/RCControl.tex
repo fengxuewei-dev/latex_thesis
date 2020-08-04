@@ -1,0 +1,199 @@
+\subsection{raspberry's handled logic and px4's receiver}
+树莓派的控制指令以mavlink消息$(MAVLINK_MSG_ID_RC_CHANNELS_OVERRIDE = 70)$进入到px4内部, 处理函数名字为:
+\begin{lstlisting}[title=mavlink处理函数声明体]
+    // Firmware/src/modules/mavlink/mavlink_receiver.cpp
+    void MavlinkReceiver::handle_message(mavlink_message_t *msg);
+\end{lstlisting}
+\par 处理函数内部会对信息进行解码处理，得到18个通道(channels)的值，并且赋值给 $input\_rc\_s$ rc{}变量， 之后进行
+有效性的处理(判断值18个通道的值是否为65535或者是0， 若是， 则该通道的值变为0； 反之， 该通道的值不变，且更新$rc.channel\_count$的值),
+处理之后， 使用发布器 $\_rc\_pub$ 将该变量发布到$ORB\_ID(input\_rc)$话题上(定义发布器的时候， 会设置到PublicationMulti机制， 实例化会有一个优先级的赋值， 可以参见\textcolor{red}{需要补充} )
+树莓派发送的四个值占用前四个通道，这个四个通道对应的顺序和遥控器对应指令的通道是不一样的 $(roll = 1 , pitch = 2, throttle = 3, yaw = 4)$.
+\begin{lstlisting}[title=$input\_rc\_s$结构体的定义]
+    struct input_rc_s {
+        uint64_t timestamp;
+        uint64_t timestamp_last_signal;
+        uint32_t channel_count;
+        int32_t rssi;
+        uint16_t rc_lost_frame_count;
+        uint16_t rc_total_frame_count;
+        uint16_t rc_ppm_frame_length;
+        uint16_t values[18];
+        bool rc_failsafe;
+        bool rc_lost;
+        uint8_t input_source;
+        uint8_t _padding0[3]; // required for logger
+    }
+    // publisher declaration 
+    uORB::PublicationMulti<input_rc_s>			_rc_pub{ORB_ID(input_rc), ORB_PRIO_LOW};
+\end{lstlisting}
+\begin{lstlisting}[title=树莓派以及固件通道定义]
+    // raspberry
+    #define PITCH_CHANNEL 		1
+    #define ROLL_CHANNEL 		2
+    #define YAW_CHANNEL 		3
+    #define THROTTLE_CHANNEL 	4
+    
+    // px4
+    #define PITCH_CHANNEL 		1
+    #define ROLL_CHANNEL 		2
+    #define YAW_CHANNEL 		3
+    #define THROTTLE_CHANNEL 	4
+\end{lstlisting}
+
+\subsection{其他部分的订阅}
+
+mavlink接收函数拿到数据之后，进行一些处理之后， 将数据publish出去。在$rc\_update$中进行订阅
+(multi publish 及其 subscribe 机制在后续文章中进行讲解)，订阅器定义如下：
+\begin{lstlisting}[title=订阅器的声明定义]
+    // src/modules/sensors/rc_update.h
+    uORB::Subscription	_rc_sub{ORB_ID(input_rc)};				/**< raw rc channels data subscription */
+\end{lstlisting}
+
+在源文件中$rc\_poll\ api$中进行更新获取该变量的值，再进行一些逻辑标志位的检索，
+最后对其进行第二次的有效性检测(将每个通道的值约束到某一个固定的区间， 类似constrained()函数; trim操作, 
+准备数据为manual id publish做准备)， 再一次更新元素的值. 更新后的值处理.
+\begin{itemize}
+    \item [(1)] 发布到 ORB\_ID(rc\_channels) 话题上面.
+    \item [(2)] 将 struct manual\_control\_setpoint\_s manual = {} 数据进行约束到[-1.0f, 1.0f]之间更新到该变量中,继而 发布到 ORB\_ID(manual\_control\_setpoint) 消息上.
+    \item [(3)] 将第二次发布得到的 manual 变量, 赋值给 actuator\_group\_3.control 数组, 发布到ORB\_ID(actuator\_controls\_3)消息上.
+\end{itemize}
+
+我们真正关心的消息topic应该是$(1\>, 2\>)$, 也就是 $ORB\_ID(rc\_channels)$ 和 $ORB\_ID(manual\_control\_setpoint)$, 
+其中 $ORB\_ID(rc\_channels)$ 会被作用到PWM(遥控器和接收机的通信方式)上,所以,我们只需要关心的就是 $ORB\_ID(manual\_control\_setpoint)$ 消息topic即可.
+\par
+上述变量及其函数定义如下:
+\begin{lstlisting}[title=上述变量及其函数定义]
+    void RCUpdate::rc_poll(const ParameterHandles &parameter_handles);
+
+
+    rc_channels_s _rc {};			/**< r/c channel data */
+    orb_publish_auto(ORB_ID(rc_channels), &_rc_pub, &_rc, &instance, ORB_PRIO_DEFAULT);
+    
+    
+    struct manual_control_setpoint_s manual = {};
+    orb_publish_auto(ORB_ID(manual_control_setpoint), &_manual_control_pub, &manual, &instance,
+                ORB_PRIO_HIGH);
+    
+    
+    /* copy from mapped manual control to control group 3 */
+    struct actuator_controls_s actuator_group_3 = {};
+    /* publish actuator_controls_3 topic */
+    orb_publish_auto(ORB_ID(actuator_controls_3), &_actuator_group_3_pub, &actuator_group_3, &instance,
+                 ORB_PRIO_DEFAULT);
+\end{lstlisting}
+
+\subsection{ORB\_ID(manual\_control\_setpoint)}
+这个uORB消息, 在px4内部会被 FixedWing Position Controller , FixedWing Attitude Controller 及其他原件进行订阅使用, 
+这里我们需要关心的 FixedWing Position Controller , FixedWing Attitude Controller中的使用情况.
+\subsubsection{FixedWing Position Controller}
+在制导控制器中, px4会根据当前的throttle期望值, 调用 内部的 TECS, 进行新的姿态设定值, 计算期望空速, pitch, 以及使用其他的逻辑来进行计算 yaw, 以及roll的设定值, 赋值给变量$\_att\_sp$, 从而在最后发布给下一层的姿态控制器. 
+\begin{lstlisting}[title=计算一些姿态的设定值]
+_att_sp.roll_body = _manual.y * _parameters.man_roll_max_rad;
+_att_sp.yaw_body = 0;
+
+const float deadBand = 0.06f;
+float factor = 1.0f - deadBand;
+float pitch = -(_manual.x + deadBand) / factor;
+
+// calculate the demanded airspeed.
+float
+FixedwingPositionControl::get_demanded_airspeed()
+{
+	float altctrl_airspeed = 0; // the demanded airspeed.
+
+	// neutral throttle corresponds to trim airspeed
+	if (_manual.z < 0.5f) {
+		// lower half of throttle is min to trim airspeed
+		altctrl_airspeed = _parameters.airspeed_min +
+				   (_parameters.airspeed_trim - _parameters.airspeed_min) *
+				   _manual.z * 2;
+
+	} else {
+		// upper half of throttle is trim to max airspeed
+		altctrl_airspeed = _parameters.airspeed_trim +
+				   (_parameters.airspeed_max - _parameters.airspeed_trim) *
+				   (_manual.z * 2 - 1);
+	}
+
+	return altctrl_airspeed;
+}
+\end{lstlisting}
+
+\textcolor{red}{上述代码公式转换如下}
+
+\subsubsection{FixedWing Attitude Controller}
+姿态控制器拿到数据且赋值给 $\_manual$ 变量.
+\begin{lstlisting}[title=高度处理逻辑]
+if (_vcontrol_mode.flag_control_rattitude_enabled) {
+	if (fabsf(_manual.y) > _parameters.rattitude_thres || fabsf(_manual.x) > _parameters.rattitude_thres) {
+		_vcontrol_mode.flag_control_attitude_enabled = false;
+	}
+}
+\end{lstlisting}
+\par
+\begin{itemize}
+    \item 若该变量的y和x大于 $\_parameters.rattitude\_thres$ 参数的值, 则 $flag\_control\_attitude\_enabled = false$, 若这个时候$flag\_control\_rates\_enabled$ 为真, 那么执行处理逻辑1; 再将值发布到$ORB\_ID(vehicle\_rates\_setpoint)$消息上, 进行下一步的处理.
+    \item 若该变量的y和x小于等于 $\_parameters.rattitude\_thres$ 参数的值, 则 $flag\_control\_attitude\_enabled = true$, 执行处理逻辑2, 将值publish到 $\_attitude\_setpoint\_id$ 上面(这个topic就对应offboard从mavros发送到px4的控制逻辑层)
+    \item 若不符合上面两个逻辑, 直接执行处理逻辑3, 将控制指令直接发布给执行器. 将值publish到 $\_attitude\_setpoint\_id$ 上
+\end{itemize}
+\begin{lstlisting}[title=处理逻辑1]  
+    _rates_sp.roll = _manual.y * _parameters.acro_max_x_rate_rad;
+    _rates_sp.pitch = -_manual.x * _parameters.acro_max_y_rate_rad;
+    _rates_sp.yaw = _manual.r * _parameters.acro_max_z_rate_rad;
+    _rates_sp.thrust_body[0] = _manual.z;        
+\end{lstlisting}
+\begin{lstlisting}[title=处理逻辑2]  
+    // STABILIZED mode generate the attitude setpoint from manual user inputs
+					_att_sp.timestamp = hrt_absolute_time();
+
+					// calculate the setpoints 
+					_att_sp.roll_body = _manual.y * _parameters.man_roll_max + _parameters.rollsp_offset_rad;
+					_att_sp.roll_body = math::constrain(_att_sp.roll_body, -_parameters.man_roll_max, _parameters.man_roll_max);
+					_att_sp.pitch_body = -_manual.x * _parameters.man_pitch_max + _parameters.pitchsp_offset_rad;
+					_att_sp.pitch_body = math::constrain(_att_sp.pitch_body, -_parameters.man_pitch_max, _parameters.man_pitch_max);
+					_att_sp.yaw_body = 0.0f;
+					_att_sp.thrust_body[0] = _manual.z;
+
+					// get the Quatf
+					Quatf q(Eulerf(_att_sp.roll_body, _att_sp.pitch_body, _att_sp.yaw_body));
+					q.copyTo(_att_sp.q_d);
+                    _att_sp.q_d_valid = true;  
+                    
+                    _attitude_setpoint_id = ORB_ID(vehicle_attitude_setpoint);
+\end{lstlisting}
+\begin{lstlisting}[title=处理逻辑3]  	
+    /* manual/direct control */
+    _actuators.control[actuator_controls_s::INDEX_ROLL] = _manual.y * _parameters.man_roll_scale + _parameters.trim_roll;
+    _actuators.control[actuator_controls_s::INDEX_PITCH] = -_manual.x * _parameters.man_pitch_scale + _parameters.trim_pitch;
+    _actuators.control[actuator_controls_s::INDEX_YAW] = _manual.r * _parameters.man_yaw_scale + _parameters.trim_yaw;
+    _actuators.control[actuator_controls_s::INDEX_THROTTLE] = _manual.z;
+
+    _actuators_id = ORB_ID(actuator_controls_0);
+\end{lstlisting}
+
+\begin{lstlisting}[title=$\_attitude\_setpoint\_id$]
+_attitude_setpoint_id = ORB_ID(vehicle_attitude_setpoint);
+\end{lstlisting}
+
+\subsection{Low pass filter}
+\begin{lstlisting}[title=Low pass filter from px4]
+    float LowPassFilter2p::apply(float sample)
+{
+	// do the filtering
+	float delay_element_0 = sample - _delay_element_1 * _a1 - _delay_element_2 * _a2;
+
+	if (!PX4_ISFINITE(delay_element_0)) {
+		// don't allow bad values to propagate via the filter
+		delay_element_0 = sample;
+	}
+
+	const float output = delay_element_0 * _b0 + _delay_element_1 * _b1 + _delay_element_2 * _b2;
+
+	_delay_element_2 = _delay_element_1;
+	_delay_element_1 = delay_element_0;
+
+	// return the value. Should be no need to check limits
+	return output;
+}
+\end{lstlisting}
+    

@@ -1,0 +1,38 @@
+\subsection{开机自启动程序sample}
+在文件 $~/.config$ 文件下找到autostart文件夹, 如如果没有就新创建一个。在该文件夹下创建一个$xxx.desktop$文件，文件名自拟，后缀必须是desktop，文件内容如下：
+\begin{lstlisting}[title=xxx.desktop]
+    [Desktop Entry]
+    Name=test
+    Comment=Python Program
+    Exec=python /home/pi/test.py
+    Icon=/home/pi/python_games/4row_black.png
+    Terminal=false
+    MultipleArgs=false
+    Type=Application
+    Categories=Application;Development;
+    StartupNotify=true
+\end{lstlisting}
+
+\begin{itemize}
+    \item  Desktop Entry: 每个desktop文件都以这个标签开始，说明这是一个Desktop Entry文件
+    \item  Name=python( 程序名称（必须），这里以创建一个Firefox的快捷方式为例)
+    \item  Comment=Python program(程序描述 可选)
+    \item  Exec=python3 wifitz.py(程序的启动命令（必选），可以带参数运行,当下面的Type为Application，此项有效. 这里是中端执行的命令,路径应该是绝对路径)
+    \item  Icon=$/home/pi/python\_games/4row_arrow.png$(设置快捷方式的图标（可选）,可以从系统其他地方直接法制个图标路径过来)
+    \item  Terminal = false 是否在终端中运行（可选），当Type为Application，此项有效
+    \item  Type = Application desktop的类型（必选），常见值有“Application”和“Link”
+    \item  Categories = GNOME;Application;Network; 注明在菜单栏中显示的类别（可选）
+\end{itemize}
+Name、Comment、Icon可以自定，表示启动项的名称、备注和图标。
+Exec表示调用的指令，和在终端输入运行脚本的指令格式一致。
+如果你的树莓派没有png图标，那么就和我一样，找到 $python\_game$ 文件夹，那里有几个简单的图标可以现成拿来使用。之后再次$sudo \hspace{0.5em} reboot$
+
+重启成功后，在linux终端使用命令\textcolor{red}{$ps \hspace{0.5em} aux$}查看当前运行的所有程序，
+如果程序正常启动，可以在这里找到.
+
+\par 如果需要启动多个程序，我试过用上述方法添加三个.desktop文件，结果失败了；
+所以，如果需要启动多个程序，建议创建一个.sh脚本文件，将
+多个程序的终端启动命令添加到.sh文件中，然后将上述第三步中的第4行改为Exec=./filename.sh。接下来执行第4步和第5步查看执行结果，
+我这里能够成功启动三个python程序，
+\textcolor{red}{本方法是利用树莓派进入桌面后再自动启动程序的方式来实现自动启动，所以需要等桌面加载完成后才启动，等待的时间相对较长一些}
+这个方法测试失败!!!

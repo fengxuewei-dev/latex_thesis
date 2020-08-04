@@ -1,0 +1,32 @@
+\subsection{几种开机自启动的方法}
+之前在树莓派上写的程序，都是通过ssh连接后在控制台上用命令行启动的，这种方式适合测试和调试，
+完善好程序后，比较好的方法是把程序设置为开机自启动，
+这样树莓派一上电就开始运行程序。查阅网上的资料，主要有三种方法，
+% \url{https://blog.csdn.net/wangzhenyang2/article/details/80215149?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase}
+\par \href{https://blog.csdn.net/wangzhenyang2/article/details/80215149?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase}{博客地址}
+\begin{itemize}
+    \item [1.] 是在$rc.local$添加启动项
+    \item [2.] 是在$~/.config/autostart$中添加桌面启动应用
+    \item [3.] 是在$/etc/init.d/$中添加服务项
+    \item [4.] 使用systemctl设置服务
+\end{itemize}
+测试代码如下:
+\begin{lstlisting}[title=UDP测试代码]
+    #!/usr/bin/python
+    import socket
+    import time
+    
+    HOST='192.168.64.136'
+    PORT=9999
+    
+    server=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    server.connect((HOST,PORT))
+    data='123'
+    
+    try:
+        while True:
+            server.sendall(data.encode(encoding='utf-8'))
+            time.sleep(1)
+    except:
+        server.close()
+\end{lstlisting}

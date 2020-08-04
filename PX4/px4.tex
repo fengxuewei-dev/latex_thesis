@@ -1,0 +1,222 @@
+\documentclass[UTF8,a4paper,10pt]{ctexbook}
+
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左   
+\usepackage{ctex}
+\CTEXoptions[today=old]
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{varioref}
+\usepackage{ctex}
+\usepackage{multicol}
+\usepackage{amssymb} 
+\usepackage{setspace}
+\usepackage{tikz} 
+\usepackage{mdframed}
+\usepackage{titletoc}
+\usepackage{etoolbox}
+
+\usepackage{helvet}
+\usepackage{caption}
+\usepackage{multicol} 
+\usepackage{changepage}
+\usepackage{graphics}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[english]{babel}
+\usepackage{color}      
+\usepackage{graphicx}   
+\usepackage{url}        
+\usepackage{bm}         
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}  % 代码框
+
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=C++,                % the language of the code
+  basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+
+
+\usepackage[pagestyles]{titlesec}
+\renewcommand{\algorithmicensure}{ \textbf{Input:}} 
+\renewcommand{\figurename}{图}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+
+\newpagestyle{teststyle}{
+  \sethead{\emph{姓名:冯学伟}}{\emph{\sectiontitle}}{\emph{第\thepage页}}
+  \renewcommand{\makeheadrule}{
+    \makebox[0pt][l]{\rule[-.3\baselineskip]{\linewidth}{.5pt}}
+    \rule[-.4\baselineskip]{\linewidth}{.5pt}
+  }
+}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{changepage}
+\usepackage{fancyhdr}   %设置页眉、页脚
+\pagestyle{fancy}       %%%单线页眉
+\fancyhead{}
+\fancyhead[LO]{px4 learning}
+\fancyhead[RO]{fengxuewei}
+\fancypagestyle{plain}{
+  \pagestyle{fancy}
+}
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+\usepackage{shorttoc}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{titletoc}
+
+\DeclareRobustCommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}  % 初号
+\DeclareRobustCommand{\xiaochu}{\fontsize{36pt}{\baselineskip}\selectfont} % 小初
+\DeclareRobustCommand{\yihao}{\fontsize{26pt}{\baselineskip}\selectfont}   % 一号
+\DeclareRobustCommand{\xiaoyi}{\fontsize{24pt}{\baselineskip}\selectfont}  % 小一
+\DeclareRobustCommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}   % 二号
+\DeclareRobustCommand{\xiaoer}{\fontsize{18pt}{\baselineskip}\selectfont}  % 小二
+\DeclareRobustCommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}  % 三号 
+\DeclareRobustCommand{\xiaosan}{\fontsize{15pt}{\baselineskip}\selectfont} % 小三
+\DeclareRobustCommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}   % 四号
+\DeclareRobustCommand{\xiaosi}{\fontsize{12pt}{\baselineskip}\selectfont}  % 小四
+\DeclareRobustCommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont} % 五号
+\DeclareRobustCommand{\xiaowu}{\fontsize{9pt}{\baselineskip}\selectfont}   % 小五
+\DeclareRobustCommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont} % 六号
+\DeclareRobustCommand{\xiaoliu}{\fontsize{6.5pt}{\baselineskip}\selectfont}% 小六
+\DeclareRobustCommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}  % 七号
+
+\lstset{numbers=left,numberstyle=\tiny,
+breaklines=true,  %代码过长则换行
+keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{gray!20!green!20!blue!20},escapeinside=``,xleftmargin=2em,xrightmargin=2em, aboveskip=1em}
+
+\providecommand{\keywords}[1]{\textbf{\textit{keywords---}} #1}
+
+% 设置章节格式
+% 一级标题：黑体，三号，加粗；间距：段前 0.5 行，段后 1 行；
+% \ctexset{chapter={
+%     name = {第,章},
+%     number = {\arabic{chapter}},
+%     format = {\heiti \bfseries \centering \zihao{3}},
+%     aftername = \hspace{9bp},
+%     pagestyle = BIThesis,
+%     beforeskip = 8bp,
+%     afterskip = 32bp,
+%     fixskip = true,
+%   }
+% }
+
+% % 二级标题：黑体，四号，加粗；间距：段前 0.5 行，段后 0 行；
+\ctexset{section={
+    number = {\thechapter.\hspace{4bp}\arabic{section}},
+    format = {\heiti \raggedright \bfseries \zihao{4}},
+    aftername = \hspace{8bp},
+    beforeskip = 20bp plus 1ex minus .2ex,
+    afterskip = 18bp plus .2ex,
+    fixskip = true,
+  }
+}
+
+% % 三级标题：黑体、小四、加粗；间距：段前 0.5 行，段后 0 行；
+\ctexset{subsection={
+    number = {\thechapter.\hspace{3bp}\arabic{section}.\hspace{3bp}\arabic{subsection}},
+    format = {\heiti \bfseries \raggedright \zihao{-4}},
+    aftername = \hspace{7bp},
+    beforeskip = 17bp plus 1ex minus .2ex,
+    afterskip = 14bp plus .2ex,
+    fixskip = true,
+  }
+}
+
+% 设置目录样式
+% 添加 PDF 链接
+\addtocontents{toc}{\protect\hypersetup{hidelinks}}
+
+% 解决「目录」二字的格式问题
+\renewcommand{\contentsname}{
+  \fontsize{16pt}{\baselineskip}
+  \normalfont\heiti{目~~~~录}
+  \vspace{-8pt}
+}
+% 定义目录样式
+\titlecontents{chapter}[0pt]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+\titlecontents{section}[2\ccwd]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+\titlecontents{subsection}[4\ccwd]{\songti \zihao{-4}}
+{\thecontentslabel\hspace{\ccwd}}{}
+{\hspace{.5em}\titlerule*{.}\contentspage}
+
+\usepackage{hyperref} %bookmarks
+% \usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green,CJKbookmarks=True]{hyperref}
+\hypersetup{colorlinks, bookmarks, unicode} % unicode
+ 
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={图}}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+
+\title{
+    \huge{\textbf{px4 learning}}
+}
+
+\author{fengxuewei}
+\date{\today}
+
+\begin{document}
+    % \maketitle
+    \tableofcontents
+    \clearpage
+    \pagestyle{teststyle}  
+    px4: 代码结构清晰, 比较适合开发
+    APM: 结构比较乱, 功能比较丰富, 稳定性好
+    启动的时候需要sd卡里的一段引导程序，
+    你要是把sd卡拔下来了飞控就启动不了了！还有就是是记录飞行日志和地形跟随的一些数据\par
+    \input{chapters/flyMode.tex}
+    \clearpage
+    \input{chapters/uorb.tex}
+    \clearpage
+    \input{chapters/navigator.tex}
+    \clearpage
+    \input{chapters/positionController.tex}
+    \clearpage
+    \input{chapters/attitudeController.tex}
+    \clearpage
+    \input{chapters/pre_knowledge.tex}
+    \clearpage
+    \input{chapters/raspberry.tex}
+\end{document}
