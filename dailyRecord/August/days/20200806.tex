@@ -1,0 +1,12 @@
+如果仍然报 roslaunch 不存在, 那就是说明是 source /opt/ros/kinetic/setup.bash 失败!
+猜想: 系统启动的时候, 需要启动一些关于 source 的相关内容 $==>$ linux 启动的顺序
+
+\begin{itemize}
+    \item 目的: 解决 roslaunch: command not found 错误
+    \item 1. 之所以出现这个问题是因为没有 source /opt/ros/kinetic/setup.bash, 但是之前的已经source过了, 但是没有使用的source, 使用的是bash. 
+    \item 2. 尝试使用 source, 但是会出现 source: not found 错误, 所以应该是 setup.bash 没有执行成功. 
+\end{itemize}
+
+
+备选: \href{https://www.jianshu.com/p/4f62da66ffc1}{链接地址}\\
+1. 修改ExecStart后的命令即可执行程序或者shell命令。使用服务开启

@@ -1,0 +1,108 @@
+\textcolor{red}{解决rc.local不能执行脚本文件的问题 == 运行通过sh指令来执行}\\
+\href{https://blog.csdn.net/liuwinner/article/details/91040565}{解决rc.local不能执行脚本文件}
+
+rc.local 文件中的执行指令为 sudo sh /home/pi/UDP/test.sh 可以被正确执行;
+
+\begin{itemize}
+    \item 在执行命令的时候, 我们需要加上 sudo 权限. 
+    \item rc.local 文件中的执行指令为 sudo sh /home/pi/UDP/test.sh 可以被正确执行;
+    \item rc.local 文件中的执行指令为 sh /home/pi/UDP/test.sh? 可以被正确执行;
+    \item rc.local 文件中的执行指令为 source /home/pi/UDP/test.sh? 不可以;
+\end{itemize}
+\textcolor{red}{测试:通过脚本的方法来执行两条指令}
+\par
+单独执行脚本是可以执行的. 但是将执行脚本的启动指令放在rc.local中却不能执行.
+我可以验证: 通过在前面加上一个创建文件 或者是 往一个文件中写入一条输出的方式进行. 
+\begin{lstlisting}
+#!/bin/bash
+
+touch /home/pi/UDP/startTest_1.txt
+source ~/fixedWing_ws/devel/setup.bash
+touch /home/pi/UDP/startTest_2.txt
+roslaunch mavros px4.launch fcu_url:=/dev/serial0:921600 &
+sleep 1s
+touch /home/pi/UDP/startTest_3.txt
+rosrun communication UDP_Send 0 -mt UH -p 8002 &
+
+\end{lstlisting}
+执行结果是$startTest\_1.txt$和$startTest\_2.txt$和$startTest\_3.txt$都能被正确创建.
+那结果就是source指令, roslaunch指令以及rosrun指令都没有被执行.
+
+那就先测试单个语句能否被成功执行.
+\begin{lstlisting}
+    #!/bin/bash
+    
+    touch /home/pi/UDP/startTest_1.txt
+    source ~/fixedWing_ws/devel/setup.bash
+    touch /home/pi/UDP/startTest_2.txt
+    roslaunch mavros px4.launch fcu_url:=/dev/serial0:921600 &
+    # sleep 1s
+    # touch /home/pi/UDP/startTest_3.txt
+    # rosrun communication UDP_Send 0 -mt UH -p 8002 &
+\end{lstlisting}
+执行结果是: roslaunch指令没有被执行. $==\>$ 如果加上了sudo呢? 
+\begin{itemize}
+    \item 1. 在test.sh脚本中加(现象不对)
+    \item 2. 在rc.local中加(现象不对)
+    \item 判断是否 roslaunch 文件是否被执行, 我们可以将输出重定向到指定的文件中. 比如下面的代码段. 
+\end{itemize}
+
+\begin{lstlisting}
+    roslaunch myrobot_bringup minimal.launch >> /home/username/catkin_ws/src/myrobot_bringup/start.log 2>&1
+\end{lstlisting}
+\textcolor{blue}{文件不存在会自动创建}\\
+命令 $>>$ 文件: 将命令执行的标准输出结果重定向输出到指定的文件中，如果该文件已包含数据，新数据将写入到原有内容的后面。\\
+命令 $>>$ 文件 $2>\&1$ 或者 命令 $\&>>$ 文件: 将标准输出或者
+错误输出写入到指定文件，
+如果该文件中已包含数据，新数据将写入到原有内容的后面。
+注意，第一种格式中，最后的 $2>\&1$ 是一体的，
+可以认为是固定写法. \\
+\textcolor{red}{command $>$ out.file  2$>\&$1 $\&$}: 
+$2>\&1$ 是将标准出错重定向到标准输出，
+这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。
+
+\begin{itemize}
+    \item 覆盖式输出重定向：$>$ 
+    \item 追加式输出重定向：$>>$
+    \item 错误输出重定向：$2>\&1$
+\end{itemize}
+
+\begin{lstlisting}
+    #!/bin/bash
+
+
+    touch /home/pi/UDP/startTest_0.txt
+    echo "1>> "  >> /home/pi/log/start.log 2>&1
+    source /opt/ros/kinetic/setup.bash  >> /home/pi/log/start.log 2>&1
+    # source /opt/ros/kinetic/setup.sh
+    touch /home/pi/UDP/startTest_1.txt
+    echo "2>> "  >> /home/pi/log/start.log 2>&1
+    source /home/pi/fixedWing_ws/devel/setup.bash >> /home/pi/log/start.log 2>&1
+    touch /home/pi/UDP/startTest_2.txt
+    echo "3>> "  >> /home/pi/log/start.log 2>&1
+    sudo roslaunch mavros px4.launch fcu_url:=/dev/serial0:921600 >> /home/pi/log/start.log 2>&1 &
+    
+// output in the start.log
+pi@raspberrypi:~ $ more log/start.log 
+1>> 
+/home/pi/UDP/test.sh: 6: /home/pi/UDP/test.sh: source: not found
+2>> 
+/home/pi/UDP/test.sh: 10: /home/pi/UDP/test.sh: source: not found
+3>> 
+sudo: roslaunch: command not found
+\end{lstlisting}\par
+\textcolor{red}{1. source: not found} \\
+\begin{itemize}
+    \item 因为 bash 文件的标头为: $\#!/bin/bash$ 所以才会出现这个问题 $==>$ no
+    \item 将source 改为 sh  $==>$ no
+    \item 将source 改为 bash  $==>$ yes 
+\end{itemize}
+
+bash 和 source 有什么不一样的地方吗? \par
+\textcolor{red}{2. roslaunch: command not found}\\
+\begin{itemize}
+    \item 是因为没有 source 启动脚本, 那么这样的话, 上面的bash启动脚本是不起作用的. 
+\end{itemize}
+
+会不会是在执行该程序的时候, 还有一些其他的程序没有被执行. 导致咱们的程序没有办法执行. 
+执行roslaunch的时候, 需要什么服务?

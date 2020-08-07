@@ -1,8 +1,58 @@
-目的: 找到一个方法去让节点开机自启动; 
+现在有了可以后台启动的方法, 如下所示. 
 \begin{itemize}
+    \item 1. 按照脚本的方法进行启动
+    \item 2. 按照一条指令一条指令的执行(在rc.local文件中执行)
+\end{itemize}
+若要按照脚本的方法进行启动, 那么需要验证:
+\begin{itemize}
+    \item 当launch文件没有启动完全的时候, 后面的节点会等待(verified)
+    \item 或者是设置一个小小的时延
+\end{itemize}
+
+脚本内部的执行逻辑
+\begin{lstlisting}
+#!/bin/bash
+a=0
+b=10
+echo "Will it execute the source command!"
+source ~/fixedWing_ws/devel/setup.bash
+echo "Will it execute the UDP_Send command!"
+rosrun communication UDP_Send 0 -mt UH -p 8002&
+echo "Will it execute the while()!"
+while [ "$a" != "$b" ];
+do
+#       /home/pi/UDP/UDP_Send &
+        sleep 1s
+        a=$(($a+1))
+        echo "waiting 1s... $a"
+done
+
+echo "Will it open the px4.launch!"
+roslaunch mavros px4.launch fcu_url:=/dev/serial0:921600 &
+\end{lstlisting}
+
+
+\textcolor{red}{在rc.local中执行脚本失败了, 卧槽!} 
+现象是$UDP\_Send$是被执行了,
+但是后面打开px4.launch文件失败了(会是while导致的吗?)
+
+\textcolor{red}{执行输出打印在终端, 这个有点不可行}
+中间的时延是必需的. 避免程序的并发性. 
+
+\begin{itemize}
+    \item 目的: 找到一个方法去让节点开机自启动; 
     \item 需要找到一个方法可以验证一个进程开机启动了; 
     \item 拿一个 UDP send 和 UDP Receive 来进行测试; 
     \item UDP send, UDP Receive 的本地源代码. 
-    \item 验证方法
+    \item 验证方法, 修改rc.local文件是可以得到目的的
+    \item 通过修改rc.local文件可以达到开机自启动一个脚本
+    \item 有了开机自启动的方法之后, 启动一个脚本, 在脚本中添加执行逻辑
+    \item 脚本内部的执行逻辑
 \end{itemize}
+
+在rc.local中执行单个指令是ok的, 但是不能执行脚本.\\ 
+那如果执行两个指令呢? 是ok的.
+执行ros相关指令没有通过
+
+\href{https://blog.csdn.net/liuwinner/article/details/91040565}{解决rc.local不能执行脚本文件}
 

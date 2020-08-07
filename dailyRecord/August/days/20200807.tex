@@ -1,0 +1,67 @@
+\begin{itemize}
+    \item 目的: 解决 roslaunch: command not found 错误
+    \item 1. 之所以出现这个问题是因为没有 source /opt/ros/kinetic/setup.bash, 但是之前的已经source过了, 但是没有使用的source, 使用的是bash. 
+    \item 2. 尝试使用 source, 但是会出现 source: not found 错误, 所以应该是 setup.bash 没有执行成功. 
+    \item 那么.bashrc是在什么时候启动的呢? 
+    \item 那么如果在.bashrc里面添加了脚本是不是可以执行呢? $==>$ 必须打开终端才会执行
+    \item /rc.local和/etc/init.d/
+    \item 在 /etc/init.d/ 目录下创建了一个自己的服务, 并且添加到自启动的时候, 可以参数作用, 但是将其添加到通过指令来进行自启动却没有产生作用, 没有搞明白这个目录下的文件如何产生作用.需要网络服务
+    \item 可以在 rc.local 中启动一些服务. 
+\end{itemize}
+
+\begin{itemize}
+    \item 将执行脚本放在 /etc/profile 配置文件中, 看看是否可以执行 ==> 需要连接上 ssh 才可以执行
+    \item 将执行脚本放在 /etc/profile.d/ 路径下, 看看是否可以执行 ==> 不可以 \par
+    因为 /etc/profile.d/ 路径下的脚本文件都是在 /etc/profile 脚本启动的时候进行遍历执行的. 
+\end{itemize}
+
+/etc/rc0.d $~$ /etc/rc6.d 分别是什么意思? 启动的时候需要执行哪一个? 
+\begin{lstlisting}[title=查看当前的运行级别]
+pi@raspberrypi:/etc $ who -r 
+    run-level 5  2020-08-07 11:28
+
+pi@raspberrypi:/etc/rc5.d $ ls -la
+    total 8
+    drwxr-xr-x  2 root root 4096 Aug  7 09:46 .
+    drwxr-xr-x 99 root root 4096 Aug  7 11:38 ..
+    lrwxrwxrwx  1 root root   26 Apr  8  2019 S01console-setup.sh -> ../init.d/console-setup.sh
+    lrwxrwxrwx  1 root root   23 Aug  7 09:46 S02Auto_udp_send -> ../init.d/Auto_udp_send
+    lrwxrwxrwx  1 root root   24 Aug  4 09:45 S02binfmt-support -> ../init.d/binfmt-support
+    lrwxrwxrwx  1 root root   16 Aug  4 09:45 S02dhcpcd -> ../init.d/dhcpcd
+    lrwxrwxrwx  1 root root   17 Aug  4 09:45 S02rsyslog -> ../init.d/rsyslog
+    lrwxrwxrwx  1 root root   22 Aug  4 09:45 S02triggerhappy -> ../init.d/triggerhappy
+    lrwxrwxrwx  1 root root   14 Aug  4 09:45 S03cron -> ../init.d/cron
+    lrwxrwxrwx  1 root root   14 Aug  4 09:45 S03dbus -> ../init.d/dbus
+    lrwxrwxrwx  1 root root   24 Aug  4 09:45 S03dphys-swapfile -> ../init.d/dphys-swapfile
+    lrwxrwxrwx  1 root root   17 Aug  4 09:45 S03paxctld -> ../init.d/paxctld
+    lrwxrwxrwx  1 root root   22 Aug  4 09:45 S03raspi-config -> ../init.d/raspi-config
+    lrwxrwxrwx  1 root root   19 Aug  4 09:45 S03rng-tools -> ../init.d/rng-tools
+    lrwxrwxrwx  1 root root   15 Aug  4 09:45 S03rsync -> ../init.d/rsync
+    lrwxrwxrwx  1 root root   13 Aug  4 09:45 S03ssh -> ../init.d/ssh
+    lrwxrwxrwx  1 root root   22 Aug  4 09:45 S04avahi-daemon -> ../init.d/avahi-daemon
+    lrwxrwxrwx  1 root root   19 Aug  4 09:45 S04bluetooth -> ../init.d/bluetooth
+    lrwxrwxrwx  1 root root   18 Aug  4 09:45 S05plymouth -> ../init.d/plymouth
+\end{lstlisting}
+由此可见, 在当前运行级别下, 没有networking的启动服务. 我们可以将networking的服务项加到自动启动项中 $==>$ 添加失败; \par
+或许我们可以将代码添加到 networking 的启动服务内部. 
+
+\par 尝试在 networking 中添加指令. 
+
+\textcolor{blue}{近几日总结} 尝试了挺多种方法, 总结如下:
+\begin{itemize}
+    \item /etc/profile: 只有 Login shell 启动时才会运行 /etc/profile 这个脚本，而Non-login shell 不会调用这个脚本。
+    \item /etc/profile.d/: 在执行/etc/profile 文件的时候, 会遍历该路径下的所有脚本, 依次执行. 
+    \item $~$/.bashrc: 打开一个shell端口的时候, 会被执行
+    \item /etc/init.d/: 内部存放一些服务文件, 通过自己添加自定义的文件, 手动打开服务可以, 重启却没有反应
+    \item /etc/rc.local: 文件中可以添加一些上电自启动的启动指令, 但是在执行ros相关指令的时候, 会出现报错, 目前使用的是这种方式进行尝试. 
+    \item 目前采用的是, 在 /etc/init.d/ 下面添加一个启动服务文件, 之后在 rc.local 文件中进行 start. 开机之后通过指令查看该服务的运行情况, 发现其先与网络服务打开, 导致后面UDP$\_$Send没有办法执行(这个应该是和内部的启动优先顺序有关系). 
+\end{itemize}
+
+思路: 现在我们可以先不用udp, 因为是单机, 所以, 我们只需要测试, 
+当树莓派启动的时候, 登录一下, 执行后台进程, 当把shell关闭了之后, 该进程还会不会存在? ==> 不会, 相关进程也会关闭, 因为进程号
+
+使用 $nohup$ 来使用. \par
+候选方法: (使用的是/etc/profile脚本)\\
+1. 在使用之前需要先进入 shell 终端一下(为了开启一下脚本) , 好像不行, 还是需要ssh. \\
+2. 
+
