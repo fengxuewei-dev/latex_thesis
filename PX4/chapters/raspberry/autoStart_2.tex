@@ -2,31 +2,133 @@
 之前在树莓派上写的程序，都是通过ssh连接后在控制台上用命令行启动的，这种方式适合测试和调试，
 完善好程序后，比较好的方法是把程序设置为开机自启动，
 这样树莓派一上电就开始运行程序。查阅网上的资料，主要有三种方法，
-% \url{https://blog.csdn.net/wangzhenyang2/article/details/80215149?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase}
 \par \href{https://blog.csdn.net/wangzhenyang2/article/details/80215149?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase}{博客地址}
 \begin{itemize}
-    \item [1.] 是在$rc.local$添加启动项
+    \item [1.] 是在$rc.local$添加启动项(已经实现)
     \item [2.] 是在$~/.config/autostart$中添加桌面启动应用
     \item [3.] 是在$/etc/init.d/$中添加服务项
     \item [4.] 使用systemctl设置服务
 \end{itemize}
-测试代码如下:
-\begin{lstlisting}[title=UDP测试代码]
-    #!/usr/bin/python
-    import socket
-    import time
-    
-    HOST='192.168.64.136'
-    PORT=9999
-    
-    server=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-    server.connect((HOST,PORT))
-    data='123'
-    
-    try:
-        while True:
-            server.sendall(data.encode(encoding='utf-8'))
-            time.sleep(1)
-    except:
-        server.close()
+测试方法代码: \href{https://github.com/fengxuewei-dev/latex_thesis/blob/master/UDP/UDP_Send/UDP_Send}{$UDP\_Send$}
+\subsubsection{通过rc.local自启动}
+\input{chapters/raspberry/rcLocal.tex}
+\begin{lstlisting}[title=$/etc/rc.local$]
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+./home/pi/UDP/UDP_Send &
+
+exit 0
 \end{lstlisting}
+
+\par 执行sudo vim $/etc/rc.local$ 命令编辑rc.local文件, 
+在exit 0上面一行添加语句\\$./home/pi/UDP/UDP\_Send\hspace{0.5em}\&$, 
+表示运行$UDP\_Send$可执行文件，而$\&$符号可以简单理解为让程序运行在后台。
+然后执行$sudo \hspace{0.5em} reboot$ 重启树莓派，记得把自己电脑上的接收程序提前打开，看看能不能接收到数据。
+\par 启动之后, 可以在接收器上面执行接收到UDP数据.成功的时候如果输入$ps\hspace{0.5em}aux$ 来查看进程情况, 可以查看到
+\begin{lstlisting}[title=进程执行]
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root       541  0.7  0.0   3824   944 ?        S    08:38   0:00 ./home/pi/UDP/UDP_Send 
+\end{lstlisting}
+
+\input{chapters/raspberry/rcLocalNoRunScripts.tex}
+
+
+\subsubsection{通过桌面应用自启动}
+    \textcolor{red}{待测}
+\subsection{/etc/profile.d}
+自己写一个shell脚本; 
+将写好的脚本（.sh文件）放到目录 /etc/profile.d/ 下，
+系统启动后就会自动执行该目录下的所有shell脚本。\par
+将执行脚本放在 /etc/profile.d/ 路径下, 不可以执行, 
+因为 /etc/profile.d/ 路径下的脚本文件都是在 /etc/profile 脚本启动的时候进行遍历执行的. 
+\begin{lstlisting}[title=遍历执行/etc/profile.d/路径下的脚本文件]
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+\end{lstlisting}
+\textcolor{red}{待测}
+
+\subsubsection{通过服务脚本自启动}
+    \input{chapters/raspberry/serviceStart.tex}    
+
+\subsection{使用rc.local修改}
+\begin{itemize}
+    \item [1.] 在执行某一个语句之后, 等到几秒再次执行下一条语句
+    \item [2.] 程序后台进行的脚本文件
+\end{itemize}
+\begin{lstlisting}[title=启动脚本多ROS节点]
+#!/bin/bash
+a=0
+b=10
+echo "Will it execute the source command!"
+source ~/fixedWing_ws/devel/setup.bash
+echo "Will it execute the UDP_Send command!"
+rosrun communication UDP_Send 0 -mt UH -p 8002&
+echo "Will it execute the while()!"
+while [ "$a" != "$b" ];
+do
+#       /home/pi/UDP/UDP_Send &
+        sleep 1s
+        a=$(($a+1))
+        echo "waiting 1s... $a"
+done
+
+echo "Will it open the px4.launch!"
+roslaunch mavros px4.launch fcu_url:=/dev/serial0:921600 &
+\end{lstlisting}
+如果$\#!/bin/sh$, 会出现$source:not found!$, 解决办法是修改为$\#!/bin/bash$
+
+\textcolor{red}{在rc.local中执行脚本失败了, 卧槽!} 
+现象是$UDP\_Send$是被执行了,
+但是后面打开px4.launch文件失败了(会是while导致的吗?)
+
+\subsection{init.d目录和/etc/rc.local的区别}
+
+init.d目录中的脚本都是以服务的形式启动的，顾名思义，服务会在后台一直运行. 
+所以，系统在执行init.d目录中的服务脚本时，会分别单独为每个服务脚本启动一个
+非登录非交互式shell来始终在后台运行服务脚本一直到用户退出登录，关闭系统，
+这些始终运行在各个非登录非交互式的shell中的服务脚本才会停止运行 \par
+rc.local也是我经常使用的一个脚本。该脚本是在系统初始化级别脚本运行之后再执行的，因此可以安全地在里面添加你想在系统启动之后执行的脚本, 启动顺序可见\ref{rasp:startup}。\par
+可以在rc.local中启动一些服务. 
+
+\subsection{查看服务优先顺序}
+要知道服务的启动顺序，
+就需要先知道服务如何启动的。
+linux有7个运行级别
+，用户可选择不同的运行级别。
+进入/etc/rc.d/目录，
+可查看到对应从rc0.d到rc6.d等7个目录，
+这些目录即对应7个级别。
+\begin{lstlisting}[title=查看运行级别]
+    pi@raspberrypi:/etc $ who -r 
+         run-level 5  2020-08-07 11:28
+\end{lstlisting}
+查看自己系统的运行级别指令为\textcolor{red}{who -r}. 进入rc3.d目录，
+可看到各种以K或者S开始的服务，
+命名都以S（start）、K（kill）或D（disable）开头, 
+而后面的数字就表示启动顺序。
+我们以熟悉的network服务为例，
+\textcolor{red}{这里只是个链接}，其实还是指向/etc/init.d/network，其启动值为10。

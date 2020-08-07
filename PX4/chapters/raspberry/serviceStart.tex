@@ -1,0 +1,98 @@
+执行ls /etc/init.d 
+可以看到该目录下有很多服务程序文件，
+在这里添加自己的服务文件，
+就可以对其进行配置从而实现自启动。
+在该目录下新建文件 $Auto\_Start\_UDP\_Send$，编辑内容：
+\begin{lstlisting}[title=服务文件配置]
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: Auto_Start_Test
+# Required-Start: $remote_fs
+# Required-Stop: $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Auto Start Test 
+# Descrption: This service is used to test auto start service
+### END INIT INFO
+
+case "$1" in
+    start)
+        echo "Start"
+        ./home/pi/UDP/UDP_Send &
+        ;;
+    stop)
+        echo "Stop"
+        killall ./home/pi/UDP/UDP_Send
+        exit 1
+        ;;
+    *)
+        echo "Usage:service Auto_Start_UDP_Send start|stop"
+        exit 1
+        ;;
+esac
+exit 0
+\end{lstlisting}
+\par 服务文件是什么: 
+操作系统中的服务是指执行指定系统功能的程序、例程或进程，以便支持其他程序，
+尤其是低层(接近硬件)程序。
+通过网络提供服务时，服务可以在Active Directory(活动目录)中发布，
+从而促进了以服务为中心的管理和使用。
+\par 服务是一种应用程序类型，它在后台运行。
+服务应用程序通常可以在本地和通过网络为用户提供一些功能，
+例如客户端/服务器应用程序、Web服务器、
+数据库服务器以及其他基于服务器的应用程序。(文件的权限r是4, w是2, x是1)
+\par 按照下面的执行流程进行操作:
+\begin{lstlisting}
+    // 1. change the file's Authority 755 or 777
+    sudo chmod 755 Auto_Start_UDP_Send
+
+    // 2. add the service to Self-starting, than can be succeed
+    sudo update-rc.d Auto_Start_UDP_Send defaults
+
+    // 3. we can start the service by hand(had been verified).
+    sudo service Auto_Start_Test start
+
+    // 3. we can stop the service by hand(had been verified).
+    sudo service Auto_Start_Test stop
+
+    // 
+    sudo reboot
+\end{lstlisting}
+之后, 重新启动树莓派查看效果. 不成功, 但是手动启动的时候是奏效的. 
+
+那么如何将自己写的服务添加到开机自动启动呢? \par
+\textcolor{blue}{chkconfig command}.如果没有该命令, 我们可以先进行安装
+\begin{lstlisting}
+    // install the chkconfig command
+    sudo apt-get install chkconfig
+
+    // 1. check out the services list and their priority
+    chkconfig
+
+    // 2. add the service to the list
+    sudo chkconfig --add Auto_Start_UDP_Send 
+
+    // 3. reboot(not verified)
+    sudo reboot
+\end{lstlisting}
+\textcolor{red}{将启动服务指令放到rc.local文件中}\par
+这里开启UDP$\_$Send, 需要网络服务
+\begin{lstlisting}[title=查看服务的运行状态]
+pi@raspberrypi:~ $ sudo service Auto_udp_send status
+   Loaded: loaded (/etc/init.d/Auto_udp_send; generated; vendor preset: enabled)
+   Active: active (exited) since Fri 2020-08-07 10:07:59 BST; 43s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4915)
+   CGroup: /system.slice/Auto_udp_send.service
+
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: Start
+Aug 07 10:07:59 raspberrypi systemd[1]: Started LSB: Auto Start Test.
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send heading    is:16
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send airspeed   is:17
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send position_x is:18
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send position_y is:19
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send position_z is:20
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: send yaw        is:21
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: message:1 Parity is:111
+Aug 07 10:07:59 raspberrypi Auto_udp_send[393]: sendto error:: Network is unreachable
+\end{lstlisting}

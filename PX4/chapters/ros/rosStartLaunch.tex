@@ -1,0 +1,17 @@
+\href{https://blog.csdn.net/jiangsala/article/details/88796261}{博客地址} \par
+    \subsection{$robot\_upstart$}
+    该软件包旨在帮助创建特定于平台的简单作业，
+    以机器人PC开机时启动其ROS启动文件。
+    \begin{lstlisting}
+        rosrun robot_upstart install myrobot_bringup/launch/base.launch
+    \end{lstlisting}
+    该指令将会创建一个名为 myrobot 的 job, 该 job 会执行bash.launch文件. 当你下次开始你的机器的时候, 可以手动打开该服务
+    \begin{lstlisting}
+        sudo service myrobot start
+        sudo service myrobot stop
+    \end{lstlisting}
+    执行的时候, 打印的输出是在:
+    \begin{lstlisting}
+        sudo tail /var/log/upstart/myrobot.log -n 30
+    \end{lstlisting}
+    % sudo tail /var/log/upstart/myrobot.log -n 30

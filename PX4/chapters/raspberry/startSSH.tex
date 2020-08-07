@@ -1,0 +1,13 @@
+如果您没有可用的备用HDMI显示器或键盘来连接Raspberry Pi，则可以通过将名为ssh（无任何扩展名）的空文件放入启动分区中来轻松启用SSH。
+\href{https://raspberrypi.club/293.html}{博客地址}
+\par
+要在Raspberry Pi上启用SSH，请执行以下步骤：
+\begin{itemize}
+    \item 关闭Raspberry Pi的电源，然后卸下SD卡。
+    \item 将SD卡插入计算机的读卡器。 SD卡将自动安装。
+    \item 使用OS文件管理器导航到SD卡引导目录。 Linux和macOS用户也可以从命令行执行此操作。
+    \item 在启动目录中创建一个新的名为ssh的空文件，不带任何扩展名。
+    \item 从计算机上卸下SD卡，然后将其放入Raspberry Pi中。
+    \item 打开您的Pi板上的电源。 Pi会在启动时检查此文件是否存在，如果存在，将启用SSH并删除该文件。
+\end{itemize}
+就这样。 Raspberry Pi启动后，您可以SSH进入它。

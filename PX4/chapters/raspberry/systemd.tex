@@ -1,0 +1,47 @@
+\textcolor{red}{待测}\par
+为了在树莓派启动时执行一个命令或程序，你可以设置一个服务。
+一旦你有了一个服务，则可以使用start/stop/enable/disable来控制服务的执行. 
+\subsection{创建服务}
+在Pi上，你需要创建一个 .service 文件来创建服务。如下：
+\begin{lstlisting}[title=$background_music.service$]
+[Unit]
+Description=BackgroundMusic
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u play_audio.py
+WorkingDirectory=/home/pi/myscript
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+在这个示例中，服务会在使用python3来执行/home/pi/myscript目录下的 $play\_audio.py$ 脚本。
+服务不仅限于执行python脚本，修改ExecStart后的命令即可执行程序或者shell命令。以root身份拷贝 \\
+$background\_music.service$文件到etc/systemd/system目录下即可使用这个服务。
+
+\subsection{启动/停止服务}
+\begin{lstlisting}
+    // start service
+    sudo systemctl start background_music.service
+
+    // stop service
+    sudo systemctl stop background_music.service
+\end{lstlisting}
+\subsection{开机启动服务}
+\begin{lstlisting}
+    // 1. set to the auto start when start your machine
+    sudo systemctl enable background_music.service
+
+    // 2. cancel the auto start when start your machine
+    sudo systemctl disable background_music.service
+\end{lstlisting}
+需要注意服务的启动依赖顺序: 
+\begin{itemize}
+    \item 服务需要在它所依赖的服务启动之后再启动。$background\_music.service$服务被指定在网络有效之后才启动（After=network.target）
+    \item 服务的启动顺序和依赖可以在.service文件里配置
+\end{itemize}
+更多关于服务控制的细节，可以参考\textcolor{blue}{man systemctl}.

@@ -1,0 +1,20 @@
+\subsection{nohup}
+用nohup运行命令可以使命令永久的执行下去，和用户终端没有关系，
+例如我们断开SSH连接都不会影响他的运行，注意了nohup没有后台运行的意思；$\&$才是后台运行 \par
+$\&$是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出. 
+
+\begin{itemize}
+    \item 使用$\&$后台运行程序：
+    \item 结果会输出到终端
+    \item 使用Ctrl + C发送SIGINT信号，程序免疫
+    \item 关闭session发送SIGHUP信号，程序关闭
+\end{itemize}
+\begin{itemize}
+    \item 使用nohup运行程序：
+    \item 结果会输出到终端
+    \item 使用Ctrl + C发送SIGINT信号，程序免疫
+    \item 关闭session发送SIGHUP信号，程序关闭
+\end{itemize}
+平日, 经常使用nohup和$\&$配合来启动程序: 同时免疫SIGINT和SIGHUP信号.\par
+同时，还有一个最佳实践：不要将信息输出到终端标准输出，标准错误输出，而要用日志组件将信息记录到日志里
+

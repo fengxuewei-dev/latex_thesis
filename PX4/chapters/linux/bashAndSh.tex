@@ -1,0 +1,13 @@
+\subsection{bash和sh的区别}
+$\#!/bin/sh$和$\#!/bin/bash$的区别如下, 更加详细的可以见
+\href{https://www.jianshu.com/p/762d4cccee7e}{两者区别}
+\begin{itemize}
+    \item $\#!/bin/bash --posix$ (遵循posix的特定规范，有可能就包括这样的规范: 当某行代码出错时，不继续往下解释)
+    \item $\#!/bin/dash$ 等价于 $\#!/bin/sh$, 执行速度更快.
+    \item 两者的执行标准不一样, $\#!/bin/bash$ 如果脚本中的某一行代码不能执行, 那么后面的程序也没有办法执行. 
+\end{itemize}
+
+\begin{lstlisting}
+pi@raspberrypi:~/UDP $ ls -la /bin/sh
+lrwxrwxrwx 1 root root 4 Jan 24  2017 /bin/sh -> dash
+\end{lstlisting}

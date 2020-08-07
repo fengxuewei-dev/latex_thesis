@@ -1,0 +1,28 @@
+\subsection{/etc directory}
+    编写好一个服务之后, 使用下面的指令将(比如名字为start自定义服务)其添加到 linux 系统的启动服务中. 运行后会将 start 文件加入到 /etc/rcX.d/ 目录中。
+    其中: X:0-6, 分别表示不同的启动级别, 3为字符界面启动, 5为GUI启动. 最后的数据 95 表示启动顺序, 最后在rc3.d中生成的文件会变成: S95start(命名规则: S-启动顺序-服务名字). 
+
+    \begin{lstlisting}
+        // 1. add the service to start list. Will generate a file named is "S95start"
+        cd /etc/init.d
+        sudo update-rc.d start defaults 95
+
+        // 2. rcX.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc0.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc1.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc2.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc3.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc4.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc5.d
+        drwxr-xr-x  2 root root    4096 Aug  4 10:07 rc6.d
+        -rwxr-xr-x  1 root root     735 Aug  5 09:38 rc.local
+        -rwxr-xr-x  1 root root     420 Apr  8  2019 rc.local.bak
+
+        // 3. add Auto_Start_UDP_Send service to unix system not GUI. So it lies in rc3.d/
+        pi@raspberrypi:/etc/rc3.d $ ls
+        S01console-setup.sh     S02rsyslog       S03dphys-swapfile  S03rsync         S05plymouth
+        S02Auto_Start_UDP_Send  S02triggerhappy  S03paxctld         S03ssh
+        S02binfmt-support       S03cron          S03raspi-config    S04avahi-daemon
+        S02dhcpcd               S03dbus          S03rng-tools       S04bluetooth
+
+    \end{lstlisting}

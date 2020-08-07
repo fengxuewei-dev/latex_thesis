@@ -1,0 +1,11 @@
+\subsection{后台运行指令}
+\begin{itemize}
+    \item 在下达的命令后面加上$\&$，就可以使该命令在后台进行工作，这样做最大的好处就是不怕被ctrl-c这个中断指令所中断。
+    \item 在后台执行的程序怎么使它恢复到前台来运行呢？很简单，只用执行$fg$这个命令，就可以了。
+    \item 已经在前台运行的命令，我能把它放到后台去运行么？当然可以了，只要执行ctrl-z就可以做到了.
+\end{itemize}
+\begin{lstlisting}[title=测试脚本]
+#!/bin/sh
+/home/pi/UDP/UDP_Send &
+\end{lstlisting}
+执行上面的脚本之后, 打印输出会在终端输出.

@@ -6,7 +6,7 @@
 \end{lstlisting}
 \par 处理函数内部会对信息进行解码处理，得到18个通道(channels)的值，并且赋值给 $input\_rc\_s$ rc{}变量， 之后进行
 有效性的处理(判断值18个通道的值是否为65535或者是0， 若是， 则该通道的值变为0； 反之， 该通道的值不变，且更新$rc.channel\_count$的值),
-处理之后， 使用发布器 $\_rc\_pub$ 将该变量发布到$ORB\_ID(input\_rc)$话题上(定义发布器的时候， 会设置到PublicationMulti机制， 实例化会有一个优先级的赋值， 可以参见\textcolor{red}{需要补充} )
+处理之后， 使用发布器 $\_rc\_pub$ 将该变量发布到 \\ $ORB\_ID(input\_rc)$话题上(定义发布器的时候， 会设置到PublicationMulti机制， 实例化会有一个优先级的赋值， 可以参见\textcolor{red}{需要补充} )
 树莓派发送的四个值占用前四个通道，这个四个通道对应的顺序和遥控器对应指令的通道是不一样的 $(roll = 1 , pitch = 2, throttle = 3, yaw = 4)$.
 \begin{lstlisting}[title=$input\_rc\_s$结构体的定义]
     struct input_rc_s {
@@ -55,11 +55,11 @@ mavlink接收函数拿到数据之后，进行一些处理之后， 将数据pub
 \begin{itemize}
     \item [(1)] 发布到 ORB\_ID(rc\_channels) 话题上面.
     \item [(2)] 将 struct manual\_control\_setpoint\_s manual = {} 数据进行约束到[-1.0f, 1.0f]之间更新到该变量中,继而 发布到 ORB\_ID(manual\_control\_setpoint) 消息上.
-    \item [(3)] 将第二次发布得到的 manual 变量, 赋值给 actuator\_group\_3.control 数组, 发布到ORB\_ID(actuator\_controls\_3)消息上.
+    \item [(3)] 将第二次发布得到的 manual 变量, 赋值给 actuator\_group\_3.control 数组, 发布到\\ ORB\_ID(actuator\_controls\_3)消息上.
 \end{itemize}
 
 我们真正关心的消息topic应该是$(1\>, 2\>)$, 也就是 $ORB\_ID(rc\_channels)$ 和 $ORB\_ID(manual\_control\_setpoint)$, 
-其中 $ORB\_ID(rc\_channels)$ 会被作用到PWM(遥控器和接收机的通信方式)上,所以,我们只需要关心的就是 $ORB\_ID(manual\_control\_setpoint)$ 消息topic即可.
+其中 $ORB\_ID(rc\_channels)$ 会被作用到PWM(遥控器和接收机的通信方式)上,所以,我们只需要关心的就是\\ $ORB\_ID(manual\_control\_setpoint)$ 消息topic即可.
 \par
 上述变量及其函数定义如下:
 \begin{lstlisting}[title=上述变量及其函数定义]
@@ -132,9 +132,9 @@ if (_vcontrol_mode.flag_control_rattitude_enabled) {
 \end{lstlisting}
 \par
 \begin{itemize}
-    \item 若该变量的y和x大于 $\_parameters.rattitude\_thres$ 参数的值, 则 $flag\_control\_attitude\_enabled = false$, 若这个时候$flag\_control\_rates\_enabled$ 为真, 那么执行处理逻辑1; 再将值发布到$ORB\_ID(vehicle\_rates\_setpoint)$消息上, 进行下一步的处理.
+    \item 若该变量的y和x大于 $\_parameters.rattitude\_thres$ 参数的值, 则 $flag\_control\_attitude\_enabled = false$, 若这个时候$flag\_control\_rates\_enabled$ 为真, 那么执行处理逻辑1; 再将值发布到\\$ORB\_ID(vehicle\_rates\_setpoint)$消息上, 进行下一步的处理.
     \item 若该变量的y和x小于等于 $\_parameters.rattitude\_thres$ 参数的值, 则 $flag\_control\_attitude\_enabled = true$, 执行处理逻辑2, 将值publish到 $\_attitude\_setpoint\_id$ 上面(这个topic就对应offboard从mavros发送到px4的控制逻辑层)
-    \item 若不符合上面两个逻辑, 直接执行处理逻辑3, 将控制指令直接发布给执行器. 将值publish到 $\_attitude\_setpoint\_id$ 上
+    \item 若不符合上面两个逻辑, 直接执行处理逻辑3, 将控制指令直接发布给执行器. 将值publish到 \\ $\_attitude\_setpoint\_id$ 上
 \end{itemize}
 \begin{lstlisting}[title=处理逻辑1]  
     _rates_sp.roll = _manual.y * _parameters.acro_max_x_rate_rad;
