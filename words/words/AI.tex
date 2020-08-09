@@ -379,7 +379,7 @@ mixer 接受力指令（例如向右转）并将其转换为单独的电机指�
     
     第一次执行该算法时候，需要初始化i的值，让其等于2，见\ref{algo5:ref:init}；UAV会执行航线$\overline{w_{i-1}w_{i}}$，在算法第4、5行分别定义针对当前执行航点的$r$和$q$，第6行定义了下一条航线的单位方向向量，第7行是航线 $\overline{w_{i-1}w_{i}}$ 和 $\overline{w_{i}w_{i+1}}$ 所生成半平面的法向量，8行到10行进行位置判定，若满足某个关系式，即若无人机穿过半平面，
     那么就要切换航点，执行下一条航线，直到最后一个航点序列号减一。
-\begin{algorithm}[h]
+    \begin{algorithm}[h]
             \caption{Follow Waypoints:(r, q)=followWpp($\textit{W}$, p)}
             \label{algo5:ref}
             \begin{algorithmic}[1]
