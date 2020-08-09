@@ -1,11 +1,14 @@
 \chapter{仿真}
-    \section{软件仿真}
-        \subsection{软件准备}
-        \subsection{组成部分}
-        \subsection{数据流走向}
-        \subsection{效果展示}
-    \section{硬件仿真}
-        \subsection{硬件准备}
-        \subsection{组成部分}
-        \subsection{数据流走向}
-        \subsection{效果展示}
+    \section{软件仿真效果展示}
+        视频演示(基于ros-gazebo-qgc三者平台进行的软件仿真展示)
+        \begin{itemize}
+            \item 视频SITL$\_$FORMATION: linux系统下, 基于ros-gazebo-qgc三者平台进行的软件仿真展示, 期间进行三种编队的飞行(T字型编队, Y字型编队, V字型编队), 并且完成了普通航线, 八字形航线, 操场跑道航线的飞行任务, 最后回到起飞Home点处. 
+        \end{itemize}
+
+    \section{硬件仿真效果展示}
+        视频演示(基于XPlane10-QGC平台进行的硬件仿真展示), 因为XPlane硬件在环仿真平台数据链路很不稳定, 只能勉强测一台机子, 所以只能采用将主机飞行数据保存下来, 从机读取文本数据的方法进行测试.
+        \begin{itemize}
+            \item 视频HITL$\_$LEADER: 主机按照航线飞行, 使用的是RC飞行控制模式(集群(主机)), 且在飞行途中将飞行期间的姿态数据(编队所需)保存到文本文件中, 供从机编队测试时使用. 
+            \item 视频HITL$\_$FOLLOWER: 从机从文本文件中获取到主机的飞行数据, 进行编队飞行控制. 
+        \end{itemize}
+        

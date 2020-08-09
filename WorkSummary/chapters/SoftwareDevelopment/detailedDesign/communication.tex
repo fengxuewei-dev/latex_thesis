@@ -1,0 +1,8 @@
+通信模块在整个集群之间担任着非常重要的地位, 有了它我们就可以完成多个个体之间的交流配合. \par
+如图\ref{fig:comm}所示内部主要功能有 UDP$\_$Send 和 UDP$\_$Receive 两大功能, 其中 UDP$\_$Send 主要担任着广播自己的位姿信息, 供机间之间配合调用. 有了send, receive 也是必不可少的. UDP$\_$Receive 主要是用来接收集群地面站的指令信息以及其余飞机广播的位姿信息, 进而数据转发给processor进行处理. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/communication.png}
+    \caption{communication}
+    \label{fig:comm}
+\end{figure}

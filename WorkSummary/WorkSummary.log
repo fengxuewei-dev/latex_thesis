@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.11)  5 AUG 2020 23:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.11)  9 AUG 2020 15:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1179,10 +1179,7 @@ File: c70rm.fd 2019/05/29 v2.4.16 Chinese font definition (CTEX)
 LaTeX Font Info:    Trying to load font information for C70+zhsong on input line 3.
  (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/zhmetrics/c70zhsong.fd
 File: c70zhsong.fd 2009/09/23 4.8.2
-)
-Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 12.
-Package CJKpunct Info: use punctuation spaces for family 'zhsong' with punctstyle (quanjiao) on input line 12.
-)
+))
 \tf@toc=\write5
 \openout5 = `WorkSummary.toc'.
 
@@ -1198,67 +1195,383 @@ File: zhwindowsfonts.tex 2019/05/29 v2.4.16 Windows font map loader for pdfTeX a
 LaTeX Font Info:    Trying to load font information for C70+zhhei on input line 2.
 (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/zhmetrics/c70zhhei.fd
 File: c70zhhei.fd 2009/09/23 4.8.2
-) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/totalRequirements/projectBackground.tex)) [3] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment.tex [4
-
-
-]
+) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/totalRequirements/projectBackground.tex
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 1.
+) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/totalRequirements/researchStatus_foreign.tex [3]
+<pictures/formationStruct_1.png, id=369, 532.99126pt x 502.87875pt>
+File: pictures/formationStruct_1.png Graphic file (type png)
+<use pictures/formationStruct_1.png>
+Package pdftex.def Info: pictures/formationStruct_1.png  used on input line 24.
+(pdftex.def)             Requested size: 409.71692pt x 386.58095pt.
+)) [4 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/formationStruct_1.png>] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment.tex
 Á¨¨‰∫åÁ´†
-Package CJKpunct Info: use punctuation spaces for family 'zhhei' with punctstyle (quanjiao) on input line 11.
-[5] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign.tex (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/frameWork.tex
-Overfull \hbox (11.0613pt too wide) in paragraph at lines 1--9
-[]\C70/rm/m/n/10/67 , \C70/rm/m/n/10/65 á \C70/rm/m/n/10/63 ¢ \C70/rm/m/n/10/8b ® \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/4e ; \C70/rm/m/n/10/89 Å \C70/rm/m/n/10/51 Ö \C70/rm/m/n/10/5b π \C70/rm/m/n/10/53 ^^E \C70/rm/m/n/10/62 Ï \C70/rm/m/n/10/56 ˙ \C70/rm/m/n/10/5b ö \C70/rm/m/n/10/7f ¸ \C70/rm/m/n/10/59 ˇ \C70/rm/m/n/10/60 ^^A \C70/rm/m/n/10/63 ß \C70/rm/m/n/10/52 6|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/98 ﬁ \C70/rm/m/n/10/88 L \C70/rm/m/n/10/54 ^^Q \C70/rm/m/n/10/5b ¸ \C70/rm/m/n/10/53   \C70/rm/m/n/10/81 Í \C70/rm/m/n/10/4e ; \C70/rm/m/n/10/5b ¸ \C70/rm/m/n/10/82 * \C70/rm/m/n/10/7b I \C70/rm/m/n/10/52 ü \C70/rm/m/n/10/80 ˝|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/4e Â \C70/rm/m/n/10/5c B \C70/rm/m/n/10/6b ! \C70/rm/m/n/10/53 ^^V \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/89 ¬ \C70/rm/m/n/10/70 π \C70/rm/m/n/10/67 e \C70/rm/m/n/10/77 |\C70/rm/m/n/10/ff ^^L| \OT1/cmr/m/n/10 PX4\C70/rm/m/n/10/75 1
+<pictures/sitl.png, id=383, 584.1825pt x 324.0105pt>
+File: pictures/sitl.png Graphic file (type png)
+<use pictures/sitl.png>
+Package pdftex.def Info: pictures/sitl.png  used on input line 16.
+(pdftex.def)             Requested size: 196.66235pt x 109.07443pt.
+<pictures/hitl.png, id=384, 1178.60326pt x 677.53125pt>
+File: pictures/hitl.png Graphic file (type png)
+<use pictures/hitl.png>
+Package pdftex.def Info: pictures/hitl.png  used on input line 23.
+(pdftex.def)             Requested size: 196.66235pt x 113.0491pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+(d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+ (d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [5
+
+
+ <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/sitl.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/hitl.png>]
+<pictures/single_system.png, id=409, 405.9165pt x 420.3705pt>
+File: pictures/single_system.png Graphic file (type png)
+<use pictures/single_system.png>
+Package pdftex.def Info: pictures/single_system.png  used on input line 47.
+(pdftex.def)             Requested size: 227.62206pt x 235.7266pt.
+ [6 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/single_system.png>]
+<pictures/modules.png, id=419, 911.20425pt x 369.17924pt>
+File: pictures/modules.png Graphic file (type png)
+<use pictures/modules.png>
+Package pdftex.def Info: pictures/modules.png  used on input line 54.
+(pdftex.def)             Requested size: 455.24411pt x 184.4427pt.
+
+Overfull \hbox (18.73116pt too wide) in paragraph at lines 59--59
+[]\C70/rm/m/n/10/96 ∆ \C70/rm/m/n/10/7f § ^^V \C70/rm/m/n/10/96 ^^_\OT1/cmr/m/n/10 , \C70/rm/m/n/10/5f S \C70/rm/m/n/10/62 @ \C70/rm/m/n/10/67 	 \C70/rm/m/n/10/98 ﬁ \C70/rm/m/n/10/67 : \C70/rm/m/n/10/51 h \C70/rm/m/n/10/90 Ë \C70/rm/m/n/10/4e 
+ \C70/rm/m/n/10/75 5 \C70/rm/m/n/10/8d w \C70/rm/m/n/10/98 ﬁ \C70/rm/m/n/10/54 ^^N\OT1/cmr/m/n/10 ([][]2.3[][]), \C70/rm/m/n/10/7b I \C70/rm/m/n/10/5f Ö \C70/rm/m/n/10/96 ∆ \C70/rm/m/n/10/7f § \C70/rm/m/n/10/57 0 \C70/rm/m/n/10/97 b \C70/rm/m/n/10/7a Ÿ \C70/rm/m/n/10/4e : \C70/rm/m/n/10/6b œ \C70/rm/m/n/10/4e ^^@ \C70/rm/m/n/10/67 ∂ \C70/rm/m/n/10/98 ﬁ \C70/rm/m/n/10/67 : \C70/rm/m/n/10/53 — \C70/rm/m/n/10/90 ^^A \C70/rm/m/n/10/63 ^^G \C70/rm/m/n/10/4e ‰\OT1/cmr/m/n/10 (QGC$[]$COMMNAD),
  []
 
-<pictures/PX4_Architecture_1.png, id=406, 613.54219pt x 289.08pt>
-File: pictures/PX4_Architecture_1.png Graphic file (type png)
-<use pictures/PX4_Architecture_1.png>
-Package pdftex.def Info: pictures/PX4_Architecture_1.png  used on input line 12.
-(pdftex.def)             Requested size: 227.62206pt x 107.24904pt.
-<pictures/fight_stack.png, id=409, 595.023pt x 165.0165pt>
-File: pictures/fight_stack.png Graphic file (type png)
-<use pictures/fight_stack.png>
-Package pdftex.def Info: pictures/fight_stack.png  used on input line 22.
-(pdftex.def)             Requested size: 273.14923pt x 75.75238pt.
-[6 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/PX4_Architecture_1.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/fight_stack.png>]) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/navigator.tex
-Overfull \hbox (7.96416pt too wide) in paragraph at lines 40--42
-[]\C70/rm/m/n/10/8b Â \C70/rm/m/n/10/62 Ä \C70/rm/m/n/10/67 / \C70/rm/m/n/10/4f ^^X \C70/rm/m/n/10/70 π \C70/rm/m/n/10/66 / \C70/rm/m/n/10/5b ö \C70/rm/m/n/10/4f M \C70/rm/m/n/10/7c æ \C70/rm/m/n/10/5e ¶ \C70/rm/m/n/10/9a ÿ|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/5b ö \C70/rm/m/n/10/4f M \C70/rm/m/n/10/53 J \C70/rm/m/n/10/5f Ñ \C70/rm/m/n/10/53 Ô \C70/rm/m/n/10/8f æ \C70/rm/m/n/10/53 A \C70/rm/m/n/10/51 ‡ \C70/rm/m/n/10/7c s|\C70/rm/m/n/10/30 ^^B| \C70/rm/m/n/10/76 Ó \C70/rm/m/n/10/52 M \C70/rm/m/n/10/6c ° \C70/rm/m/n/10/67 	 \C70/rm/m/n/10/4e ^^@ \C70/rm/m/n/10/79 Õ \C70/rm/m/n/10/4f   \C70/rm/m/n/10/7e ﬂ \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/5b ¸ \C70/rm/m/n/10/82 * \C70/rm/m/n/10/5b ö \C70/rm/m/n/10/4f M \C70/rm/m/n/10/62 Ä \C70/rm/m/n/10/67 / \C70/rm/m/n/10/80 ˝ \C70/rm/m/n/10/59 ^^_ \C70/rm/m/n/10/8f æ \C70/rm/m/n/10/52 0\OT1/cmr/m/n/10 GPS\C70/rm/m/n/10/8f Ÿ
+<pictures/groups.pdf, id=423, 597.432pt x 844.95674pt>
+File: pictures/groups.pdf Graphic file (type pdf)
+<use pictures/groups.pdf>
+Package pdftex.def Info: pictures/groups.pdf  used on input line 65.
+(pdftex.def)             Requested size: 455.24411pt x 643.87567pt.
+<pictures/leader.png, id=424, 582.978pt x 603.4545pt>
+File: pictures/leader.png Graphic file (type png)
+<use pictures/leader.png>
+Package pdftex.def Info: pictures/leader.png  used on input line 71.
+(pdftex.def)             Requested size: 455.24411pt x 471.23589pt.
+<pictures/follower.pdf, id=425, 844.95674pt x 1194.86403pt>
+File: pictures/follower.pdf Graphic file (type pdf)
+<use pictures/follower.pdf>
+Package pdftex.def Info: pictures/follower.pdf  used on input line 77.
+(pdftex.def)             Requested size: 455.24411pt x 643.77664pt.
+[7
+
+ <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/modules.png>] [8 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/groups.pdf>] [9 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/leader.png>] [10 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/follower.pdf>] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign.tex
+<pictures/system_2.png, id=608, 1142.2675pt x 637.38126pt>
+File: pictures/system_2.png Graphic file (type png)
+<use pictures/system_2.png>
+Package pdftex.def Info: pictures/system_2.png  used on input line 5.
+(pdftex.def)             Requested size: 409.71692pt x 228.62067pt.
+<pictures/processor.png, id=610, 1580.90625pt x 515.9275pt>
+File: pictures/processor.png Graphic file (type png)
+<use pictures/processor.png>
+Package pdftex.def Info: pictures/processor.png  used on input line 13.
+(pdftex.def)             Requested size: 455.24411pt x 148.5681pt.
+ [11
+
+ <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/system_2.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/processor.png>] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/communication.tex
+<pictures/communication.png, id=624, 869.2475pt x 622.325pt>
+File: pictures/communication.png Graphic file (type png)
+<use pictures/communication.png>
+Package pdftex.def Info: pictures/communication.png  used on input line 5.
+(pdftex.def)             Requested size: 455.24411pt x 325.92786pt.
+) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/navigator.tex
+<pictures/navigator.png, id=627, 1348.03625pt x 581.17125pt>
+File: pictures/navigator.png Graphic file (type png)
+<use pictures/navigator.png>
+Package pdftex.def Info: pictures/navigator.png  used on input line 6.
+(pdftex.def)             Requested size: 455.24411pt x 196.26541pt.
+) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/positionController.tex
+<pictures/positionCtrl.png, id=629, 1519.6775pt x 834.11626pt>
+File: pictures/positionCtrl.png Graphic file (type png)
+<use pictures/positionCtrl.png>
+Package pdftex.def Info: pictures/positionCtrl.png  used on input line 5.
+(pdftex.def)             Requested size: 455.24411pt x 249.8677pt.
+ [12 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/communication.png>] [13 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/navigator.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/positionCtrl.png>]) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/attitudeController.tex
+Overfull \hbox (0.81166pt too wide) in paragraph at lines 1--2
+[]\C70/rm/m/n/10/59 ˇ \C70/rm/m/n/10/60 ^^A \C70/rm/m/n/10/63 ß \C70/rm/m/n/10/52 6 \C70/rm/m/n/10/56 h \C70/rm/m/n/10/83 ∑ \C70/rm/m/n/10/53 ÷ \C70/rm/m/n/10/52 0 6 \C70/rm/m/n/10/5b ¸ \C70/rm/m/n/10/63 ß \C70/rm/m/n/10/52 6 \C70/rm/m/n/10/56 h \C70/rm/m/n/10/8b ° \C70/rm/m/n/10/7b ó \C70/rm/m/n/10/5f ó \C70/rm/m/n/10/52 0 \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/67 ^^_ ^^[ \C70/rm/m/n/10/59 ˇ \C70/rm/m/n/10/60 ^^A \C70/rm/m/n/10/65 p \C70/rm/m/n/10/63 n \C70/rm/m/n/10/7e ƒ \C70/rm/m/n/10/4e K \C70/rm/m/n/10/54 ^^N\OT1/cmr/m/n/10 , \C70/rm/m/n/10/63 	 \C70/rm/m/n/10/71 g\OT1/cmr/m/n/10 ALTCTL(RC)\C70/rm/m/n/10/54 å\OT1/cmr/m/n/10 OFFBOARD\C70/rm/m/n/10/4e $
  []
 
-[7]) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/positionController.tex) (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/SoftwareDevelopment/detailedDesign/attitudeController.tex
-<pictures/attitude.png, id=436, 546.843pt x 166.82326pt>
-File: pictures/attitude.png Graphic file (type png)
-<use pictures/attitude.png>
-Package pdftex.def Info: pictures/attitude.png  used on input line 8.
-(pdftex.def)             Requested size: 318.66948pt x 97.21829pt.
-)) [8 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/attitude.png>]) [9] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/HardwareDevelopment.tex [10
+<pictures/attitudeCtrl.png, id=649, 793.96625pt x 712.6625pt>
+File: pictures/attitudeCtrl.png Graphic file (type png)
+<use pictures/attitudeCtrl.png>
+Package pdftex.def Info: pictures/attitudeCtrl.png  used on input line 6.
+(pdftex.def)             Requested size: 364.19667pt x 326.9044pt.
+)) [14 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/attitudeCtrl.png>]) [15
+
+] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/algorithms.tex [16
 
 
 ]
 Á¨¨‰∏âÁ´†
-) [11] [12
+(f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/algorithms/algorithm1.tex
+Overfull \hbox (17.57762pt too wide) in paragraph at lines 10--12
+[]\C70/rm/m/n/10/51 v \C70/rm/m/n/10/4e - \C70/rm/m/n/10/76 Ñ $\OML/cmm/m/it/10 r$ \C70/rm/m/n/10/4e : \C70/rm/m/n/10/6b c \C70/rm/m/n/10/57 ( \C70/rm/m/n/10/62 g \C70/rm/m/n/10/88 L \C70/rm/m/n/10/76 Ñ Ó \C70/rm/m/n/10/68 ^^G \C70/rm/m/n/10/82 * \C70/rm/m/n/10/70 π|\C70/rm/m/n/10/ff ^^L| $\OML/cmm/m/it/10 n$\C70/rm/m/n/10/4e : \C70/rm/m/n/10/8b Â \C70/rm/m/n/10/53 J \C70/rm/m/n/10/5e s \C70/rm/m/n/10/97 b \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/6c ’ \C70/rm/m/n/10/54 ^^Q \C70/rm/m/n/10/91 œ|\C70/rm/m/n/10/ff ^^L| $\OML/cmm/m/it/10 p$\C70/rm/m/n/10/4e : \C70/rm/m/n/10/65 ‡ \C70/rm/m/n/10/4e ∫ \C70/rm/m/n/10/67 : \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/5f S \C70/rm/m/n/10/52 M \C70/rm/m/n/10/4f M \C70/rm/m/n/10/7f n|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/72 i \C70/rm/m/n/10/74 ^^F \C70/rm/m/n/10/6a ! \C70/rm/m/n/10/57 ã \C70/rm/m/n/10/59 Ç \C70/rm/m/n/10/56 ˛[][]\OT1/cmr/m/n/10 3.1(a)[][]\C70/rm/m/n/10/62 @
+ []
+
+<pictures/half_plane.png, id=671, 296.307pt x 207.77625pt>
+File: pictures/half_plane.png Graphic file (type png)
+<use pictures/half_plane.png>
+Package pdftex.def Info: pictures/half_plane.png  used on input line 26.
+(pdftex.def)             Requested size: 152.95998pt x 107.26117pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm5.eps>
+(epstopdf)                    date: 2020-06-02 09:15:41
+(epstopdf)                    size: 82498 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm5-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 09:15:48
+(epstopdf)                    size: 19495 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm5-eps-converted-to.pdf pictures/eps/algorithm5.eps>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm5-eps-converted-to.pdf, id=672, 1156.32pt x 564.1075pt>
+File: pictures/eps/algorithm5-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm5-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm5-eps-converted-to.pdf  used on input line 33.
+(pdftex.def)             Requested size: 218.51521pt x 106.59622pt.
+<pictures/algo6_2.png, id=673, 257.763pt x 178.86826pt>
+File: pictures/algo6_2.png Graphic file (type png)
+<use pictures/algo6_2.png>
+Package pdftex.def Info: pictures/algo6_2.png  used on input line 38.
+(pdftex.def)             Requested size: 227.62206pt x 157.95859pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 49.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/half_plane.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm5-eps-converted-to.pdf>]
+<pictures/algo6_3.png, id=709, 345.08925pt x 218.0145pt>
+File: pictures/algo6_3.png Graphic file (type png)
+<use pictures/algo6_3.png>
+Package pdftex.def Info: pictures/algo6_3.png  used on input line 80.
+(pdftex.def)             Requested size: 273.14923pt x 172.57552pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Citation `8' on page 18 undefined on input line 125.
+
+
+Overfull \hbox (21.96484pt too wide) in paragraph at lines 123--131
+[]\C70/rm/m/n/10/57 ( \C70/rm/m/n/10/56 ˛[][]\OT1/cmr/m/n/10 3.2[][]\C70/rm/m/n/10/4e -|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/50 G \C70/rm/m/n/10/5b ö\OT1/cmr/m/n/10 fillet\C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/53 J \C70/rm/m/n/10/5f Ñ \C70/rm/m/n/10/4e :\OT1/cmr/m/n/10 R|\C70/rm/m/n/10/ff ^^L| \C70/rm/m/n/10/90 £ \C70/rm/m/n/10/4e H \C70/rm/m/n/10/57 ^^F \C70/rm/m/n/10/5f ' \C70/rm/m/n/10/54 å \C70/rm/m/n/10/4e $ \C70/rm/m/n/10/67 a \C70/rm/m/n/10/82 * \C70/rm/m/n/10/7e ø \C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/52 ^^G \C70/rm/m/n/10/70 π \C70/rm/m/n/10/8d › \C70/rm/m/n/10/82 * \C70/rm/m/n/10/70 π$\OML/cmm/m/it/10 w[]$\C70/rm/m/n/10/76 Ñ \C70/rm/m/n/10/8d › \C70/rm/m/n/10/79 ª \C70/rm/m/n/10/4e :$[]$ ^^T \C70/rm/m/n/10/82 * \C70/rm/m/n/10/70 π$\OML/cmm/m/it/10 w[]$\C70/rm/m/n/10/54 å\OT1/cmr/m/n/10 fillet\C70/rm/m/n/10/76 Ñ
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/algo6_2.png>]
+Package epstopdf Info: Source file: <pictures/eps/algorithm5_6.eps>
+(epstopdf)                    date: 2020-06-02 14:33:52
+(epstopdf)                    size: 997250 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm5_6-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:34:00
+(epstopdf)                    size: 481025 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm5_6-eps-converted-to.pdf pictures/eps/algorithm5_6.eps>
+(epstopdf)             \includegraphics on input line 150.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm5_6-eps-converted-to.pdf, id=743, 1156.32pt x 564.1075pt>
+File: pictures/eps/algorithm5_6-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm5_6-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm5_6-eps-converted-to.pdf  used on input line 150.
+(pdftex.def)             Requested size: 218.51521pt x 106.59622pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm5_6_1.eps>
+(epstopdf)                    date: 2020-06-02 14:34:28
+(epstopdf)                    size: 275915 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm5_6_1-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:34:35
+(epstopdf)                    size: 144406 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm5_6_1-eps-converted-to.pdf pictures/eps/algorithm5_6_1.eps>
+(epstopdf)             \includegraphics on input line 157.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm5_6_1-eps-converted-to.pdf, id=744, 1156.32pt x 564.1075pt>
+File: pictures/eps/algorithm5_6_1-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm5_6_1-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm5_6_1-eps-converted-to.pdf  used on input line 157.
+(pdftex.def)             Requested size: 218.51521pt x 106.59622pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm6.eps>
+(epstopdf)                    date: 2020-06-02 14:38:58
+(epstopdf)                    size: 102268 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm6-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:39:04
+(epstopdf)                    size: 30087 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm6-eps-converted-to.pdf pictures/eps/algorithm6.eps>
+(epstopdf)             \includegraphics on input line 170.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm6-eps-converted-to.pdf, id=749, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm6-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm6-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm6-eps-converted-to.pdf  used on input line 170.
+(pdftex.def)             Requested size: 174.81284pt x 131.11145pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm6_1.eps>
+(epstopdf)                    date: 2020-06-02 14:39:17
+(epstopdf)                    size: 36328 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm6_1-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:39:24
+(epstopdf)                    size: 12574 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm6_1-eps-converted-to.pdf pictures/eps/algorithm6_1.eps>
+(epstopdf)             \includegraphics on input line 177.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm6_1-eps-converted-to.pdf, id=750, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm6_1-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm6_1-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm6_1-eps-converted-to.pdf  used on input line 177.
+(pdftex.def)             Requested size: 174.81284pt x 131.11145pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm6_2.eps>
+(epstopdf)                    date: 2020-06-02 14:39:27
+(epstopdf)                    size: 36865 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm6_2-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:39:32
+(epstopdf)                    size: 12280 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm6_2-eps-converted-to.pdf pictures/eps/algorithm6_2.eps>
+(epstopdf)             \includegraphics on input line 185.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm6_2-eps-converted-to.pdf, id=751, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm6_2-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm6_2-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm6_2-eps-converted-to.pdf  used on input line 185.
+(pdftex.def)             Requested size: 174.81284pt x 131.11145pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm6_3.eps>
+(epstopdf)                    date: 2020-06-02 14:39:49
+(epstopdf)                    size: 32244 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm6_3-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 14:39:56
+(epstopdf)                    size: 11758 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm6_3-eps-converted-to.pdf pictures/eps/algorithm6_3.eps>
+(epstopdf)             \includegraphics on input line 192.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm6_3-eps-converted-to.pdf, id=752, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm6_3-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm6_3-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm6_3-eps-converted-to.pdf  used on input line 192.
+(pdftex.def)             Requested size: 174.81284pt x 131.11145pt.
+ [19 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/algo6_3.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm5_6-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm5_6_1-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <pictures/eps/algorithm7.eps>
+(epstopdf)                    date: 2020-06-02 15:17:02
+(epstopdf)                    size: 164816 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm7-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 15:18:51
+(epstopdf)                    size: 47979 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm7-eps-converted-to.pdf pictures/eps/algorithm7.eps>
+(epstopdf)             \includegraphics on input line 205.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm7-eps-converted-to.pdf, id=782, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm7-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm7-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm7-eps-converted-to.pdf  used on input line 205.
+(pdftex.def)             Requested size: 152.95998pt x 114.72252pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm7_1.eps>
+(epstopdf)                    date: 2020-06-02 15:17:40
+(epstopdf)                    size: 40389 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm7_1-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 15:18:53
+(epstopdf)                    size: 14028 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm7_1-eps-converted-to.pdf pictures/eps/algorithm7_1.eps>
+(epstopdf)             \includegraphics on input line 212.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm7_1-eps-converted-to.pdf, id=783, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm7_1-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm7_1-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm7_1-eps-converted-to.pdf  used on input line 212.
+(pdftex.def)             Requested size: 152.95998pt x 114.72252pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm7_2.eps>
+(epstopdf)                    date: 2020-06-02 15:17:53
+(epstopdf)                    size: 44435 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm7_2-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 15:18:55
+(epstopdf)                    size: 14673 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm7_2-eps-converted-to.pdf pictures/eps/algorithm7_2.eps>
+(epstopdf)             \includegraphics on input line 220.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm7_2-eps-converted-to.pdf, id=784, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm7_2-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm7_2-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm7_2-eps-converted-to.pdf  used on input line 220.
+(pdftex.def)             Requested size: 152.95998pt x 114.72252pt.
+Package epstopdf Info: Source file: <pictures/eps/algorithm7_3.eps>
+(epstopdf)                    date: 2020-06-02 15:18:21
+(epstopdf)                    size: 43098 bytes
+(epstopdf)             Output file: <pictures/eps/algorithm7_3-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-06-02 15:18:57
+(epstopdf)                    size: 14460 bytes
+(epstopdf)             Command: <repstopdf --outfile=pictures/eps/algorithm7_3-eps-converted-to.pdf pictures/eps/algorithm7_3.eps>
+(epstopdf)             \includegraphics on input line 227.
+Package epstopdf Info: Output file is already uptodate.
+<pictures/eps/algorithm7_3-eps-converted-to.pdf, id=785, 421.575pt x 316.18124pt>
+File: pictures/eps/algorithm7_3-eps-converted-to.pdf Graphic file (type pdf)
+<use pictures/eps/algorithm7_3-eps-converted-to.pdf>
+Package pdftex.def Info: pictures/eps/algorithm7_3-eps-converted-to.pdf  used on input line 227.
+(pdftex.def)             Requested size: 152.95998pt x 114.72252pt.
+ [20] [21 <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm6-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm6_1-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm6_2-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm6_3-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm7-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm7_1-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm7_2-eps-converted-to.pdf> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/eps/algorithm7_3-eps-converted-to.pdf>]) [22]
+<pictures/algorithm/straight.png, id=915, 629.35126pt x 795.97375pt>
+File: pictures/algorithm/straight.png Graphic file (type png)
+<use pictures/algorithm/straight.png>
+Package pdftex.def Info: pictures/algorithm/straight.png  used on input line 15.
+(pdftex.def)             Requested size: 227.62206pt x 287.88634pt.
+<pictures/algorithm/loiter.png, id=917, 632.3625pt x 352.31625pt>
+File: pictures/algorithm/loiter.png Graphic file (type png)
+<use pictures/algorithm/loiter.png>
+Package pdftex.def Info: pictures/algorithm/loiter.png  used on input line 23.
+(pdftex.def)             Requested size: 227.62206pt x 126.81761pt.
+ [23
+
+ <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/algorithm/straight.png> <f:/1. books/5. notebooks/latex_thesis/WorkSummary/pictures/algorithm/loiter.png>]
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 42.
+
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 42.
+(d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 42.
+
+
+LaTeX Warning: Command \textgreater invalid in math mode on input line 42.
+
+[24
+
+]) [25
+
+] (f:/1. books/5. notebooks/latex_thesis/WorkSummary/chapters/HardwareDevelopment.tex [26
+
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
+Á¨¨ÂõõÁ´†
+) [27]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
  (f:/1. books/5. notebooks/latex_thesis/WorkSummary/WorkSummary.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
 Package rerunfilecheck Info: File `WorkSummary.out' has not changed.
-(rerunfilecheck)             Checksum: E34F691B98749EEF8348CD6D2F4B6B77;2854.
+(rerunfilecheck)             Checksum: 3545D03ED89592436932149A8FC66185;2917.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 32940 strings out of 480608
- 599814 string characters out of 5892806
- 891683 words of memory out of 5000000
- 47756 multiletter control sequences out of 15000+600000
- 592155 words of font info for 245 fonts, out of 8000000 for 9000
+ 33037 strings out of 480608
+ 599916 string characters out of 5892806
+ 894683 words of memory out of 5000000
+ 47619 multiletter control sequences out of 15000+600000
+ 602736 words of font info for 284 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,60p,887b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "f:/1. books/5. notebooks/latex_thesis/WorkSummary/WorkSummary.pdf" (12 pages, 758157 bytes).
+ 60i,11n,60p,887b,754s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf>{d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d:/InstallSoftware/TexmakerLiver/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on "f:/1. books/5. notebooks/latex_thesis/WorkSummary/WorkSummary.pdf" (27 pages, 3134334 bytes).
 PDF statistics:
- 930 PDF objects out of 1000 (max. 8388607)
- 651 compressed objects within 7 object streams
- 49 named destinations out of 1000 (max. 500000)
- 580 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1505 PDF objects out of 1728 (max. 8388607)
+ 1031 compressed objects within 11 object streams
+ 193 named destinations out of 1000 (max. 500000)
+ 703 words of extra memory for PDF output out of 10000 (max. 10000000)
 

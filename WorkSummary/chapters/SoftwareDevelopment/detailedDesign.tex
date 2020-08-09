@@ -1,12 +1,30 @@
-\subsection{无人机体系框架}
-    \input{chapters/SoftwareDevelopment/detailedDesign/frameWork.tex}
+\subsection{实时系统}
+    实时系统担任的主要角色是和PX4进行交互. 如图\ref{fig:msgsubandpub}所示, 实时系统从px4中读取到当前系统的实时位姿信息之后, 将其分别下发到下面几个控制器进行一些逻辑方面的计算. 
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.9\textwidth]{pictures/system_2.png}
+        \caption{实时子系统}
+    \label{fig:msgsubandpub}
+  \end{figure}
+\subsection{主控模块}
+    主控模块在系统中担任着主要控制的作用, 任何模块之间的相互控制, 如图\ref{fig:processor}. \par
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{pictures/processor.png}
+        \caption{processor}
+        \label{fig:processor}
+    \end{figure}
+    首先, 集群地面站以UDP的方式向每一架无人机广播飞行指令(内部有指定接收的飞机编号), 由通信模块(communication)下的UDP$\_$Receive子功能进行接收, 同时将其发送到主控(processor). 
+    processor 实例化之后, 会从实时子系统中获取当前无人机的编号id, 并据此id从对个QGC$\_$COMMAND中筛选出属于自己的指令. 
+    获取任务指令之后, 进行具体的解析, 获取飞行的任务指令, 同时判断数据的有效性, 且为UDP$\_$Send发送一个ACK标志位, 来对集群地面站产生一个应答响应. 
+    获取有效的飞行控制指令(single, formation, or self-organizing), 且指定与硬件的交互方式(OFFBOARD or ALTCTL(RC)), 
+    将指令整合发布给计算逻辑单元下的各个控制器, 进行计算, 最后将计算结果从串口发送给硬件PX4. 
+    
+\subsection{通信模块}
+    \input{chapters/SoftwareDevelopment/detailedDesign/communication.tex}
 \subsection{导航控制器}
     \input{chapters/SoftwareDevelopment/detailedDesign/navigator.tex}
 \subsection{制导控制器}
     \input{chapters/SoftwareDevelopment/detailedDesign/positionController.tex}
 \subsection{姿态控制器}
     \input{chapters/SoftwareDevelopment/detailedDesign/attitudeController.tex}
-\subsection{数据流}
-总体设计阶段以比较抽象概括的方式提出了解决问题的办法。详细设计阶段的任务就是把解法具体化，也就是回答下面这个关键问题：“应该怎样具体地实现这个系统呢？”
-这个阶段的任务还不是编写程序，而是设计出程序的详细规格说明。这种规格说明的作用很类似于其他工程领域中工程师经常使用的工程蓝图，它们应该包含必要的细节，程序员可以根据它们写出实际的程序代码。
-通常用ＨＩＰＯ图（层次图加输入／处理／输出图）或ＰＤＬ语言（过程设计语言）描述详细设计的结果。

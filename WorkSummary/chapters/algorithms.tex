@@ -1,0 +1,94 @@
+\chapter{算法}
+    \section{导航控制-路径管理}
+            \input{chapters/algorithms/algorithm1.tex}
+    \section{制导控制} 
+        \subsection{集群(主机)控制逻辑}
+            \subsubsection{OFFBOARD}
+            OFFBOARD模式控制下主要存在两种控制算法: TECS 和 L1控制律, 其中TECS就是利用势能和动能总和不变来根据期望高度和空速计算出期望pitch值以及期望throttle值;
+            L1制导算法，就是在航线上选择与无人机距离为L1的参考点，然后根据速度方向与到参考点连线方向之间的夹角计算横向加速度, 进而求得滚转roll, 实现航线跟踪。\par
+            这两者的算法都是从PX4内部剥离出来, 在OFFBOARD模式下进行的逻辑控制. 
+            \clearpage
+            \subsubsection{RC}
+            \textcolor{red}{直线控制逻辑\ref{alg:strai}}
+            \begin{figure}[htpb]
+                \centering
+                \includegraphics[width=0.5\textwidth]{pictures/algorithm/straight.png}
+                \caption{直线控制逻辑}
+                \label{alg:strai}
+            \end{figure}
+            
+            \textcolor{red}{盘旋控制逻辑\ref{alg:loiter}}
+            \begin{figure}[htpb]
+                \centering
+                \includegraphics[width=0.5\textwidth]{pictures/algorithm/loiter.png}
+                \caption{盘旋控制逻辑}
+                \label{alg:loiter}
+            \end{figure}
+            \clearpage
+        \subsection{编队控制逻辑}
+        从机的导航子系统中, 会根据当前飞机的位置, 以及主机的当前位置以及编队的gap值, 计算出从机期望位置点. 下发给从机的制导控制器, 进行编队, 其中的算法逻辑如下: 
+        \begin{algorithm}[htpb]
+            \caption{Formation control:($\psi$, throttle)}
+            \begin{algorithmic}[1]
+                \ENSURE (followerFinalPoint, followerPosition, followerHeading), (leaderHeading, leaderHeadingCommanded, groundSpeedLeader)
+                
+                \STATE $followerFinalPoint_{Proj}.x$ $\gets$ $followerFinalPoint.x + cos(leaderHeadingCommanded)$
+                \STATE $followerFinalPoint_{Proj}.y$ $\gets$ $followerFinalPoint.y + sin(leaderHeadingCommanded)$
+                \STATE $A$ $\gets$ $(followerFinalPoint.x - followerPosition.x) * cos(followerHeading)$
+                \STATE $B$ $\gets$ $(followerFinalPoint.y - followerPosition.y) * sin(followerHeading)$
+                \STATE $x_{e}$ $\gets$ $A + B$
+                \STATE $\chi_e$ $\gets$ $leaderHeading - followerHeading$
+                \STATE $followerDistance$ $\gets$ $followerFinalPoint - followerPosition$
+                \IF {$followerDistance$ $\textgreater$ $threshold$}
+                    \STATE $headingSetpoint$ $\gets$ $atan2(\frac{followerFinalPoint.y - followerPosition.y}{ followerFinalPoint.x - followerPosition.x})$
+                    \STATE $groundSpeedSetpoint$ $\gets$ $2*groundSpeedLeader$
+                \ELSIF{$followerDistance$ $\leq$ $threshold$}
+                    \STATE $groundSpeedSetpoint$ $\gets$ $c1 * x_e + groundSpeedLeader * cos(chi_e)$
+                    \STATE $headingSetpoint$ $\gets$ $leaderHeadingCommanded$ + $side*\chi_{\inf}*(\frac{followerDistance}{threshold}^{k})$; 
+                \ENDIF
+                \STATE $throttle$ $\gets$ $groundSpeedSetpoint$
+                \STATE $\psi$ $\gets$ $headingSetpoint$
+                \RETURN ($\psi$, $throttle$).  % this command shows "Output"
+            \end{algorithmic}
+        \end{algorithm}
+
+        % Point followerFinalPoint_Proj(
+        %     followerFinalPoint.x + cos(leaderHeadingCommanded),
+        %     followerFinalPoint.y + sin(leaderHeadingCommanded)
+        % ); 
+    
+        % double x_e = ((followerFinalPoint.x - followerPosition.x) * cos(followerHeading))+
+        %         ((followerFinalPoint.y -followerPosition.y)*sin(followerHeading));
+                
+        % double chi_e = leaderHeading - followerHeading;
+    
+        % int side = (Point::det(
+        %             followerFinalPoint-followerFinalPoint_Proj, 
+        %             followerPosition-followerFinalPoint_Proj)
+        %         ) >= 0 ? 1 : -1;
+           
+        % /*  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  */
+        % Point position_error = (followerPosition - followerFinalPoint) * 0.5;
+        % double distance_error = Point::norm(position_error);
+        % int isAdd = side >= 0 ? -1 : 1;
+        % isAdd = 0;
+        % groundSpeedSetpoint = c1 * x_e + groundSpeedLeader * cos(chi_e) + isAdd * distance_error;
+        % /*  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  */
+    
+    
+        % double followerDistance = Point::norm(followerFinalPoint - followerPosition);
+    
+        % if(followerDistance > threshold){
+        %     headingSetpoint = atan2(followerFinalPoint.y - followerPosition.y, followerFinalPoint.x - followerPosition.x);
+        %     groundSpeedSetpoint = 2*groundSpeedLeader;
+    
+        % }else
+        % {
+        %     followerDistance = abs(Point::det(followerFinalPoint_Proj -  followerFinalPoint,followerFinalPoint-followerPosition))/Point::norm(followerFinalPoint_Proj-followerFinalPoint);
+        %     int side = (Point::det(followerFinalPoint-followerFinalPoint_Proj, followerPosition-followerFinalPoint_Proj)) >= 0 ? 1 : -1;
+        %     headingSetpoint = leaderHeadingCommanded + side*chi_infinite*(pow(followerDistance/threshold,k));    
+                  
+        % }
+        \clearpage
+    \section{自组织算法}
+

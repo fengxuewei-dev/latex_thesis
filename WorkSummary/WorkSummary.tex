@@ -91,8 +91,8 @@
 \usepackage{fancyhdr}   %设置页眉、页脚
 \pagestyle{fancy}       %%%单线页眉
 \fancyhead{}
-\fancyhead[LO]{Working Summary}
-\fancyhead[RO]{fengxuewei}
+\fancyhead[LO]{\emph{姓名:冯学伟}}
+\fancyhead[RO]{\emph{第\thepage页}}
 \fancypagestyle{plain}{
   \pagestyle{fancy}
 }
@@ -207,19 +207,10 @@ keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=
     % (几个主要的类型 + 软件仿真)
   \input{chapters/SoftwareDevelopment.tex}
   \clearpage
+  \input{chapters/algorithms.tex}
+  \clearpage
   % 硬件开发 
   %   (硬件的使用标准 + 硬件仿真)
   \input{chapters/HardwareDevelopment.tex}
   \clearpage
-
-    \section{综合测试}
-    
-    这个阶段的关键任务是通过各种类型的测试（及相应的调试）使软件达到预定的要求。
-    最基本的测试是集成测试和验收测试。所谓集成测试是根据设计的软件结构，把经过单元测试检验的模块按某种选定的策略装配起来，在装配过程中对程序进行必 要的测试。所谓验收测试则是按照规格说明书的规定（通常在需求分析阶段确定），由用户（或在用户积极参加下）对目标系统进行验收。
-    必要时还可以再通过现场测试或平行运行等方法对目标系统进一步测试检验。
-    为了使用户能够积极参加验收测试，并且在系统投入生产性运行以后能够正确有效地使用这个系统，通常需要以正式的或非正式的方式对用户进行培训。
-    通过对软件测试结果的分析可以预测软件的可靠性；反之，根据对软件可靠性的要求也可以决定测试和调试过程什么时候可以结束。
-    应该用正式的文档资料把测试计划、详细测试方案以及实际测试结果保存下来，做为软件配置的一个组成成分。
-
-    \textcolor{red}{整体的思路方法， 找到自己做的凝练的地方;系统化， 软件工程思路;系统需求分析, 总体框架, 我的模块, 子模块功能及其实现流程;用到系统的硬件, 接口的口地址函数, 接口的类定义方法, 自己所做的东西内容}
 \end{document}
